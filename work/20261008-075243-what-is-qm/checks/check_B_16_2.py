@@ -1,6 +1,6 @@
 # Claim: "answers that update the state and erase the answers to incompatible questions"
 import numpy as np
-up=np.array([1,0]); dn=np.array([0,1]); r=np.array([1,1])/np.sqrt(2); l=np.array([1,-1])/np.sqrt(2)
+up=np.array([1.,0.]); dn=np.array([0.,1.]); r=np.array([1,1])/np.sqrt(2); l=np.array([1,-1])/np.sqrt(2)
 proj=lambda v: np.outer(v,v.conj())
 Z=np.diag([1,-1]); X=np.array([[0,1],[1,0]])
 ok=True
