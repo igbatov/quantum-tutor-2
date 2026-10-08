@@ -95,16 +95,16 @@ ax.text(5.0, 2.0, "\"Which slit?\" has no answer the theory gives.\nA record cha
 # (b) Many-worlds
 ax = axs[0, 1]; blank(ax)
 ax.set_title("Many-worlds  (schematic)", fontsize=12)
-box(ax, 1.55, 5.0, "electron +\nscreen\n(one joint\nstate)", fs=9.5)
-ys = [8.6, 6.8, 5.0, 3.2, 1.4]; dots = [0.25, 0.4, 0.5, 0.62, 0.75]
+box(ax, 1.55, 5.0, "electron\nreaches\nscreen", fs=9.5)
+ys = [8.8, 7.1, 5.4, 3.7, 2.0]; dots = [0.25, 0.4, 0.5, 0.62, 0.75]
 for yb, fx in zip(ys, dots):
     arrow(ax, (2.85, 5.0), (5.15, yb), cs='arc3,rad=0.0', color='0.35', lw=1.1)
     ax.add_patch(plt.Rectangle((5.3, yb-0.55), 2.2, 1.1, fc='0.92', ec='k', lw=0.9))
     ax.plot([5.3 + 2.2*fx], [yb], 'ko', ms=6)
-ax.text(7.75, 5.0, "every branch\nhas one dot,\nin a different\nplace", fontsize=9.5, va='center')
-ax.annotate("we are in one\nbranch and see\none dot", xy=(7.5, 8.6), xytext=(7.75, 7.6), fontsize=9.5, va='center',
+ax.text(7.75, 4.6, "every branch\nhas one dot,\nin a different\nplace", fontsize=9.5, va='center')
+ax.annotate("we are in one\nbranch and see\none dot", xy=(7.5, 8.8), xytext=(7.75, 7.8), fontsize=9.5, va='center',
             arrowprops=dict(arrowstyle='->', lw=0.8))
-ax.text(4.0, 0.45, "nothing collapses; all branches remain", fontsize=9.5, ha='center', style='italic')
+ax.text(4.2, 0.45, "electron and screen form one joint state with a branch\nfor each spot; nothing collapses, all branches remain", fontsize=9.5, ha='center', style='italic')
 
 # (c) Pilot-wave (computed)
 ax = axs[1, 0]
@@ -112,8 +112,6 @@ ax.set_title("Pilot-wave  (computed paths)", fontsize=12)
 for i in range(xs.shape[1]):
     ax.plot(ts, xs[:, i], color='k', lw=0.7)
 ax.axhline(0, color='0.45', ls='--', lw=1.0)
-ax.text(3.0, 1.0, "centre line: no path crosses it", fontsize=9, color='0.25', va='bottom',
-        bbox=dict(fc='white', ec='none', pad=0.5))
 # wall with two openings at z = 0
 W = 34
 for (y0, y1) in [(-W, -2.5), (-1.5, 1.5), (2.5, W)]:
@@ -123,17 +121,17 @@ P = Pf/Pf.max()
 ax.fill_betweenx(xg, T+0.05, T+0.05+1.1*P, color='0.7', lw=0)
 ax.plot([T+0.05, T+0.05], [-W, W], color='k', lw=1.0)
 ax.text(T+0.6, 25, "chance at\nthe screen", fontsize=9, ha='center')
-ins = ax.inset_axes([0.06, 0.64, 0.30, 0.33])
+ins = ax.inset_axes([0.07, 0.60, 0.29, 0.30])
 for i in range(xs.shape[1]):
     ins.plot(ts, xs[:, i], color='k', lw=0.6)
 ins.axhline(0, color='0.45', ls='--', lw=0.9)
 for (y0, y1) in [(-9, -2.5), (-1.5, 1.5), (2.5, 9)]:
     ins.add_patch(plt.Rectangle((-0.03, y0), 0.03, y1-y0, color='k'))
 ins.set_xlim(-0.05, 0.8); ins.set_ylim(-7, 7); ins.tick_params(labelsize=7.5)
-ins.set_title("zoom near the slits", fontsize=8.5)
+ins.set_yticks([]); ins.set_xticks([]); ins.set_title("zoom: first 0.8 units", fontsize=8.5, pad=2)
 ax.annotate("paths bunch\ninto bright stripes", xy=(T-0.05, spacing), xytext=(3.0, 25), fontsize=9,
             arrowprops=dict(arrowstyle='->', lw=0.8))
-ax.annotate("each path goes through\none slit, on a bent line", xy=(1.0, -5.5), xytext=(1.6, -27), fontsize=9,
+ax.annotate("each path goes through one slit,\non a bent line, and never crosses\nthe dashed centre line", xy=(1.0, -5.5), xytext=(1.2, -27), fontsize=9,
             arrowprops=dict(arrowstyle='->', lw=0.8))
 ax.set_xlim(-0.3, T+1.3); ax.set_ylim(-W, W)
 ax.set_xlabel("distance from the slits (arbitrary units)")
