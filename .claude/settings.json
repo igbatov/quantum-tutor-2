@@ -4,5 +4,19 @@
       "Bash(python3 *)",
       "Bash(mkdir *)"
     ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ \"$CLAUDE_CODE_REMOTE\" = \"true\" ]; then python3 -m pip install -q -r \"$CLAUDE_PROJECT_DIR/requirements.txt\" 2>&1 | tail -5; fi; true",
+            "timeout": 300,
+            "statusMessage": "Installing Python packages for the math verifier"
+          }
+        ]
+      }
+    ]
   }
 }
