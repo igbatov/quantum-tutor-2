@@ -30,5 +30,5 @@ ax.set_ylabel("relative chance"); ax.set_xlabel("position X on the far screen (u
 ax.legend(loc="upper right", fontsize=8)
 fig.text(0.01, 0.005, "Sorting moves no dot; the two groups' stripes are half a spacing apart and add up to the dashed curve. Where each group sits relative to the\n"
          "untagged stripes: drawn here with the +45° group peaking at X = 0; with the real plate settings both groups sit a quarter spacing off this drawing\n"
-         "(separation and sum unchanged; see check_A_07_2). Idealized: perfect plates, polarizer, source; far screen; d = 4a.", fontsize=7.5)
+         "(their separation and sum unchanged). Idealized: perfect plates, polarizer, source; far screen; d = 4a.", fontsize=7.5)
 fig.tight_layout(rect=(0, 0.065, 1, 1)); fig.savefig(OUT, dpi=150); print(OUT)
