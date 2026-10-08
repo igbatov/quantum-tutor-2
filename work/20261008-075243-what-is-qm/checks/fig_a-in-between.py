@@ -49,7 +49,7 @@ ax.plot([x0 - 0.12, x0 + 0.42], [y0, y0], color='0.5', lw=0.8)
 ax.text(5.25, 4.5, "added tip to tail, the two hands\nend where they started: total 0", fontsize=9, va='center')
 ax.text(5.0, 3.3, "amplitudes add first:  (+1) + (−1) = 0", ha='center', fontsize=10.5)
 ax.text(5.0, 2.6, "chance here = 0²  =  0", ha='center', fontsize=10.5, weight='bold')
-ax.text(5.0, 1.6, "the two routes meet and can cancel:\na dark stripe", ha='center', va='center', fontsize=10)
+ax.text(5.0, 1.6, "the two slits' combined amplitudes\nmeet and can cancel: a dark stripe", ha='center', va='center', fontsize=10)
 
 # ---- right panel: with a record ----
 ax = axs[1]
@@ -66,6 +66,7 @@ ax.text(5.0, 1.6, "no cancelling: the stripes are gone\n(the two one-slit chance
 
 fig.text(0.5, 0.025, "Schematic. Same spot on the screen in both panels (a dark stripe when there is no record); relative units; "
          "thick arrows: each amplitude as a clock hand, up = +1, down = −1.\n"
-         "A record that tells the slits apart only partly lies in between: the routes partly cancel and fainter stripes survive.",
+         "+1 is all the ways through the left slit, taken together; −1 is all the ways through the right slit, taken together.\n"
+         "A record that tells the slits apart only partly lies in between: the two slits' amplitudes partly cancel and fainter stripes survive.",
          ha='center', fontsize=9, color='0.25')
-fig.tight_layout(rect=(0, 0.07, 1, 1)); fig.savefig(out, dpi=150); print("saved", os.path.abspath(out))
+fig.tight_layout(rect=(0, 0.10, 1, 1)); fig.savefig(out, dpi=150); print("saved", os.path.abspath(out))

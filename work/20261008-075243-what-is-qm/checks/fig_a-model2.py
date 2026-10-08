@@ -94,7 +94,7 @@ ax2.text(0.9, -0.3, "each slit's hands fan out, but the two group\ntotals (bold)
          f"total {abs(z):.1f}, chance {abs(z)**2:.1f}", ha='center', va='top', fontsize=9)
 ax3 = fig.add_subplot(gs[2]); gl, gr, z = draw(ax3, x_dark, "Dark spot (first dark stripe)")
 ax3.set_xlim(-0.12, 1.12); ax3.set_ylim(-0.75, 0.55)
-ax3.text(0.5, -0.3, "left group goes out,\nright group comes straight back:\n"
+ax3.text(0.5, -0.3, "left group total goes out, right group\ntotal points straight back (its hands\ntrace the mirror-image arc):\n"
          f"total {abs(z):.0f}, chance {abs(z)**2:.0f}", ha='center', va='top', fontsize=9)
 fig.text(0.66, 0.06, "Thin arrows: one hand per strip of a slit (8 per slit), added tip to tail; black = left slit, grey = right slit.\n"
          "Bold arrows, drawn just below: each slit's group total (left solid black, right dashed grey).",

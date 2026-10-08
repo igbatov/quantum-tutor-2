@@ -23,7 +23,7 @@ axs = [fig.add_subplot(gs[0, i]) for i in range(4)]
 titles = ["1. Matter and light arrive\nin whole lumps",
           "2. Where each lands can only\nbe given as chances",
           "3. Chances come from amplitudes\nthat add and cancel",
-          "4. A record of the route\nstops the cancelling"]
+          "4. A record of which slit\nstops the cancelling"]
 for ax, t in zip(axs, titles):
     ax.set_title(t, fontsize=11.5)
     ax.set_xticks([]); ax.set_yticks([])
@@ -77,8 +77,8 @@ for i in range(3):
 
 # bottom note
 axn = fig.add_subplot(gs[1, :]); axn.axis('off')
-axn.text(0.5, 0.5, "The same amplitude rule, plus one rule for identical particles (two electrons never share one state; "
-         "photons can pile into one),\nis the physics behind atoms, chemical bonds, transistors and lasers.",
+axn.text(0.5, 0.5, "The same amplitude rule, applied to electrons and nuclei held by electric forces, plus one rule for identical particles\n"
+         "(two electrons never share one state; photons can pile into one), is the physics behind atoms, chemical bonds, transistors and lasers.",
          ha='center', va='center', fontsize=10.5, transform=axn.transAxes,
          bbox=dict(boxstyle='round,pad=0.6', fc='0.95', ec='0.5'))
 fig.suptitle("What quantum mechanics is about, in four steps (schematic; curves computed for the ideal two-slit set-up)",

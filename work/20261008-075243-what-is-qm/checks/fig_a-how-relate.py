@@ -1,5 +1,6 @@
 # Figure a-how-relate (schematic map, no computed data): one theory in two forms (wave function <-> sum
-# over paths, same predictions); three interpretations as readings of it (no experiment tells them apart);
+# over paths, same predictions); three interpretations with the same predictions for experiments like this one
+# (pilot-wave given quantum-equilibrium starting positions; whether it is a reading or a separate theory is debated);
 # objective collapse as a slightly different theory (tiny departures growing with mass; not found so far).
 import os, matplotlib
 matplotlib.use('Agg'); import matplotlib.pyplot as plt
@@ -7,7 +8,7 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 here = os.path.dirname(os.path.abspath(__file__)); out = os.path.join(here, '..', 'figures', 'a-how-relate.png')
 plt.rcParams.update({'font.size': 11})
 fig, ax = plt.subplots(figsize=(11.5, 5.8))
-ax.set_xlim(0, 11.5); ax.set_ylim(0.35, 6.1); ax.axis('off')
+ax.set_xlim(0, 11.5); ax.set_ylim(0.05, 6.1); ax.axis('off')
 
 def rbox(x, y, w, h, ec='k', fc='white', ls='-', lw=1.3, r=0.15):
     ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle=f'round,pad=0,rounding_size={r}', ec=ec, fc=fc, ls=ls, lw=lw))
@@ -31,10 +32,12 @@ for x, n in zip(xs, names):
     rbox(x, 1.45, 2.0, 0.95)
     ax.text(x+1.0, 1.92, n, ha='center', va='center', fontsize=10.5)
     arrow((x+1.0, 3.72), (x+1.0, 2.45), color='0.3')
-ax.text(3.8, 3.05, "three readings of the same theory", ha='center', va='center', fontsize=10,
+ax.text(3.8, 3.05, "three views, same predictions here", ha='center', va='center', fontsize=10,
         bbox=dict(fc='white', ec='none', pad=1.5))
 ax.plot([0.45, 0.45, 7.05, 7.05], [1.3, 1.15, 1.15, 1.3], color='k', lw=1.1)
-ax.text(3.75, 1.0, "they agree on every prediction: no experiment has ever told them apart;\n"
+ax.text(3.75, 1.0, "they agree on every prediction for experiments like this one (pilot-wave given its\n"
+                   "usual assumption about starting positions); no experiment has told them apart.\n"
+                   "Whether pilot-wave is a reading or a separate theory with the same predictions is debated;\n"
                    "the choice is taste and economy, and the question is open", ha='center', va='top', fontsize=9.8)
 
 # --- objective collapse (right) ---

@@ -34,7 +34,7 @@ for k, (ax, (title, N, W)) in enumerate(zip(axs, PANELS)):
                     xytext=(0.30*W, -0.125), va='center', fontsize=8.5, arrowprops=dict(arrowstyle='->', lw=0.8))
         ax.set_xlabel(f"position on screen x (units of slit width a; shown: ±{W:g} a)")
         top = ax.secondary_xaxis('top', functions=(lambda v: v*d/lL, lambda X: X*lL/d))
-        top.set_xlabel("same position in stripe spacings (range of figure 2)", fontsize=9.5)
+        top.set_xlabel("same position in stripe spacings (range of the one-slit vs both-slits figure)", fontsize=9.5)
         top.tick_params(labelsize=9)
     if k == 0:
         ax.legend(loc='upper center', fontsize=9, frameon=False, ncol=2)
