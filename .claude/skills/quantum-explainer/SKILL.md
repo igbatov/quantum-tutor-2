@@ -34,6 +34,8 @@ If the level is genuinely unclear and the difference matters a lot, give a short
 
 ## 2. Structure every explanation
 
+**In this project the learner wants one structure for every explanation, including "quick:" answers:** first the real experiments and what they show; then the mainstream models that explain them, after briefly showing which classical candidates the experiments rule out; for each model, its intuition, why this model rather than another, and its pros and cons; finally, how the models relate. The full description is in `.claude/agents/qm-explainer.md` under "The approach". The generic shape below applies only inside that structure.
+
 Lead with the core idea in one or two sentences, then build. A good default shape:
 
 1. **The one-sentence answer.** What is this thing, stated as honestly as possible at the learner's level.

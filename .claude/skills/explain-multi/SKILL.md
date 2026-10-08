@@ -13,7 +13,7 @@ The learner's message: $ARGUMENTS
 (If empty, use the learner's latest message in this conversation.)
 
 1. Common step A, with `Setup: multi`.
-2. Delegate to **qm-explainer**, `mode: multi`, `K: 3`. It plans at least six lenses in `strategies.md`, picks the three most different high-fit ones, and writes `candidate-A.md`, `candidate-B.md`, `candidate-C.md`. Wait.
+2. Delegate to **qm-explainer**, `mode: multi`, `K: 3`. It plans at least six candidate experiment-first plans in `strategies.md`, picks the three most different high-fit ones, and writes `candidate-A.md`, `candidate-B.md`, `candidate-C.md`. Wait.
 3. Common step B: **student** `mode: judge` over the three candidates.
 4. Common step C on each finalist, then D, then E.
 

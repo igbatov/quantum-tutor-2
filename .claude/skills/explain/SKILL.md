@@ -13,6 +13,6 @@ The learner's message: $ARGUMENTS
 (If empty, use the learner's latest message in this conversation.)
 
 1. Common step A, with `Setup: explain`.
-2. Delegate to **qm-explainer**, `mode: draft`, no strategy (it picks the best-fitting lens). Output `draft.md`. Wait.
+2. Delegate to **qm-explainer**, `mode: draft`, no strategy (it picks the best-fitting experiments and models). Output `draft.md`. Wait.
 3. Common step C on the single candidate `draft.md`, treating its letter as none: reviews `review-physics.md`, `review-learner.md` (run **student** `mode: review` here, since there is no judge), `verify.md`; revised output `final.md`.
 4. Common step D with one finalist, then step E.

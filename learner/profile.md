@@ -18,6 +18,7 @@ conceptual
 - (none recorded yet)
 
 ## Preferences
-- (none recorded yet)
+- Wants every explanation experiment-first: real experiments, then the mainstream models that explain them; for each model its intuition, why this model rather than another, and its pros and cons. (Stated by the learner, 2026-10-08.)
+- Wants no simplification that is false, even at beginner level: words and pictures instead of formulas are fine, but everything must be literally true. (Stated by the learner, 2026-10-07.)
 
 ## Notes

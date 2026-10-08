@@ -22,39 +22,38 @@ The delegation message gives a run folder `work/<id>/` and a mode. Always read:
 ## Request modes (from request.md)
 
 - `new-question` / `follow-up`: explain as the skill describes.
-- `another-angle`: the previous explanation didn't land. Don't rephrase it. Take a genuinely different route.
+- `another-angle`: the previous explanation didn't land. Don't rephrase it. Keep the experiment-first structure, but use different experiments or a different set of models.
 - `simpler`: fewer symbols, more words, pictures and concrete grounding, shorter. Never less correct: simplify by leaving things out or changing the representation, never by saying something false (skill section 0).
 - `deeper`: one level up in formalism, with a short worked calculation.
 - `check-answer`: first tell the learner whether their answer to the previous check question was right, partly right or wrong, and why, correcting the reasoning. Then continue to the next useful idea, or stop if the topic is closed.
 
-## Lenses
+## The approach: experiment-first, then models
 
-Every explanation takes a route. These are the routes you choose among:
+The learner has asked for one approach only. Every explanation (draft, candidate, revision, and every request mode) follows this structure:
 
-1. Mechanism-first: derive the behaviour from a few principles (superposition, Born rule, non-commuting observables).
-2. Experiment-first: start from what is actually measured (polarizers, Stern–Gerlach, double slit) and let the formalism emerge.
-3. Geometric: state vectors as arrows, Bloch sphere, phasors, rotations.
-4. Classical-contrast: build the classical expectation carefully, then show exactly where it fails.
-5. Analogy-led: one carefully bounded analogy, with its limits stated the moment it is introduced.
-6. Worked-example-first: one concrete calculation, then generalize.
-7. Historical: the puzzle that forced physicists into this idea.
-8. Question-led: a chain of small predictions the learner makes, each answered.
-9. Formal derivation: for technical learners, the clean mathematical argument.
-10. Misconception-first: name the wrong picture the learner probably has, show why it fails, replace it.
+1. **Experiments.** Describe one or more real experiments that bear on the question: the set-up, what is done, and what is actually observed. Keep "what is observed" separate from any interpretation of it. State real results, with their conditions, and name idealizations.
+2. **Models.** Present the mainstream models that explain these experiments, as physicists actually use them. These can be quantum formulations (wave function and Schrödinger equation, sum over paths, state vectors and measurements) and, where the question touches on meaning, the main interpretations (for example Copenhagen-style, many-worlds, pilot-wave, objective collapse). Before them, briefly show the classical candidates (particles, classical waves) that the experiments rule out, and exactly which observation rules each one out. Skip fringe models.
+3. **For each model:**
+   - **Intuition:** the picture the model gives, in words and images at the learner's level.
+   - **Why this model:** which observations force it, or what it was built to explain, and why a simpler or different model doesn't work. When several models predict the same results, say so plainly, and say what then decides between them (convenience, conceptual economy, taste, or future experiments).
+   - **Pros and cons:** what it does well (which problems it makes easy, what it explains naturally) and where it struggles (what is hard to compute, what it leaves unexplained, which objections are raised). Label contested judgments as such ("critics object that…", "supporters reply…"), and don't present any one interpretation as settled.
+4. End with how the models relate (equivalent formulations, rival interpretations with identical predictions, or approximations) and the usual check-yourself line.
+
+At the conceptual level, use words and pictures, not formulas. Everything must still be literally true (skill section 0).
 
 ## Mode: plan
 
-Think hard about how this specific idea could be explained to this specific learner. Write `work/<id>/strategies.md`:
+Think hard about how this specific question could be explained to this specific learner with the approach above. Write `work/<id>/strategies.md`:
 
-1. For at least six lenses, write two or three sentences: how the explanation would go, the concrete example it would use, and how well it fits this learner (level, profile, past choices, the request mode). Rate fit 1–5. Reject lenses explicitly, with reasons.
-2. Choose the K strategies the delegation message asks for (default 3). They must be high-fit and as different from each other as possible: different route, different example, different representation. Two strategies that would produce similar text are one strategy.
-3. For each chosen strategy write: `### Strategy N: <short name>`, the plan in one paragraph, the example, the figure request if any, and the opening sentence.
+1. List at least six candidate plans. Each is a choice of experiment or experiments (for example double slit with electrons, polarizers and photons, Stern–Gerlach, atomic spectra, Bell tests, tunnelling) plus the set of models it leads to. For each, write two or three sentences on how it would go and how well it fits this learner (level, profile, past choices, the request mode). Rate fit 1–5. Reject plans explicitly, with reasons.
+2. Choose the K strategies the delegation message asks for (default 3). They must be high-fit and as different from each other as possible: different experiments, a different set or order of models, different representations in the figures. Two strategies that would produce similar text are one strategy.
+3. For each chosen strategy write: `### Strategy N: <short name>`, the experiments, the models it will present, the plan in one paragraph, the figure request if any, and the opening sentence.
 
 Reply with the strategy names.
 
 ## Mode: draft
 
-The delegation message names one strategy from `strategies.md` (or, when there is no strategies file, you choose the best-fitting lens yourself). Write `work/<id>/candidate-<letter>.md` using the letter given, or `draft.md` if none. Follow the strategy faithfully; it is what makes this candidate different from the others.
+The delegation message names one strategy from `strategies.md` (or, when there is no strategies file, you choose the best-fitting experiments and models yourself). Write `work/<id>/candidate-<letter>.md` using the letter given, or `draft.md` if none. Follow the strategy faithfully; it is what makes this candidate different from the others.
 
 ## Mode: multi
 
