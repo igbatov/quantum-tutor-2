@@ -25,7 +25,7 @@ m = X > 3
 ins.plot(X[m], Pb[m], 'k-', lw=1.8); ins.plot(X[m], P2[m], color='tab:blue', ls='--', lw=1.3)
 ins.plot(X[m], P1[m], color='0.45', lw=1.0)
 ins.set_xlim(3, 8); ins.set_ylim(0, 0.3); ins.tick_params(labelsize=8)
-ins.set_title("zoom, right side (vertical scale stretched)", fontsize=8.5)
+ins.set_title("zoom (vertical scale stretched)", fontsize=8.5)
 ins.annotate("one-slit side band\n(peak 0.047 at 5.7)", xy=(5.72, 0.047), xytext=(6.25, 0.235), fontsize=7.5,
              arrowprops=dict(arrowstyle='->', lw=0.8))
 ins.annotate("X = 4: dark with\none slit too", xy=(4, 0.003), xytext=(3.35, 0.235), fontsize=7.5,
