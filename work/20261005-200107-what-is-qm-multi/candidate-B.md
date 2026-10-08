@@ -1,0 +1,38 @@
+<!-- strategy: Experiment-first: one electron at a time through two slits -->
+
+Quantum mechanics is the physics of how matter and light behave, and at its heart is one rule with no everyday counterpart. For each way something can happen, nature assigns an *amplitude*: a number that, unlike a probability (a chance), can cancel out another one. The amplitudes for all the ways are added, and the probability of what you finally see comes from that total.
+
+One experiment shows this better than any description.
+
+**The experiment.** Send electrons one at a time toward a barrier with two very narrow slits. Behind it is a screen that records a dot wherever an electron lands. (This has really been done, and similar experiments work with light, neutrons, atoms and even large molecules.) Three things happen:
+
+1. Every electron arrives as one dot at one spot. You never see half a dot, and never a smear.
+2. Where any particular electron lands is unpredictable. The first few dozen dots look scattered at random.
+3. As thousands of dots pile up, stripes appear: bands where many electrons land, separated by bands where almost none do.
+
+<!-- FIGURE: b-two-slit-buildup | Three panels side by side, each a simulated detector screen seen face-on. Horizontal axis: position across the screen, dimensionless u from -2 to 2, labelled 'position on screen'; vertical axis: a random coordinate in [0, 1] with no ticks, used only to spread the dots out. Each dot is one electron, drawn by rejection sampling (fixed seed) from the far-field two-slit pattern P(u) proportional to sinc^2(u) * cos^2(5*pi*u), where sinc(u) = sin(pi*u)/(pi*u) (slit separation five times the slit width). Panel 1: 50 electrons, both slits open, titled '50 electrons'. Panel 2: 5,000 electrons, both slits open, titled '5,000 electrons: stripes'. Panel 3: 5,000 electrons drawn from P(u) proportional to sinc^2(u) (no cos^2 factor), titled '5,000 electrons, which slit recorded: no stripes'. Small black dots on white. What to notice: every electron is a single dot and the first 50 look random; stripes appear only as dots pile up; recording which slit removes the stripes but keeps the overall spread. -->
+
+Stripes like these are the signature of waves: where ripples from two openings meet crest-to-crest you get a strong band, and where a crest meets a trough they cancel. But these electrons went through one at a time, each alone in the apparatus.
+
+Now the strangest part. Pick a spot in the middle of a dark stripe. With only the left slit open, electrons do land there. With only the right slit open, they land there too. Open both, so each electron has *more* ways to reach that spot, and the spot gets *none*. If electrons were tiny bullets, each passing through one slit or the other, that could never happen: opening a second slit could only add hits, never remove them.
+
+**The rule that explains it.** For each way an electron can reach a spot (through the left slit or through the right), quantum mechanics gives an amplitude. To get the probability of landing there, add the amplitudes for all the ways, then square the total. Measure everything against one slit: call one slit's amplitude at the spot $1$, so with one slit open the spot gets $1^2 = 1$ unit of hits.
+
+- **Both slits, dark spot:** the two routes arrive with opposite signs, $+1$ and $-1$. They add to $0$, and $0^2 = 0$, so there are no hits. The two ways cancel.
+- **Both slits, bright spot:** both routes arrive as $+1$. They add to $2$, and $2^2 = 4$ units, which is four times the hits of one slit, not twice.
+
+Over the whole screen, two slits give twice the hits of one, as they should. Cancelling doesn't destroy electrons; it moves them out of the dark stripes into the bright ones. (Strictly, amplitudes are more like little arrows that can point in any direction, and they cancel when they point opposite ways. Plus and minus are the simplest case, and all you need here.)
+
+**So what is the electron doing?** It's tempting to say it goes "through both slits at once", or spreads out like a ripple of electron-stuff. Neither picture holds up as stated. You never catch a fraction of an electron, and what goes through both slits and interferes (reinforces or cancels) is the amplitude. Standard quantum mechanics simply doesn't say which slit an electron used when nothing recorded it. The interpretations of quantum mechanics part ways over what amplitudes ultimately *are*, but they all agree on what you'll measure.
+
+**What "observing" means.** Now add a detector at the slits that records which slit each electron goes through. The stripes vanish, leaving one smooth hump, which is just the two one-slit patterns added together. Once a record exists, the two ways end in different situations (a record saying "left" versus one saying "right"), so their amplitudes no longer meet and add. Their probabilities add instead, and nothing can cancel. The record needn't be made by a person, or even by a purpose-built machine: a stray photon or air molecule that bounces off the electron and carries away which-slit information does the same. In quantum mechanics, "observation" means any physical interaction that leaves a record; consciousness plays no part. (Why each run ends in one definite outcome at all is a deeper question, the *measurement problem*, which physicists still debate.)
+
+**From one experiment to the whole subject.** The core of quantum mechanics is this rule: add the amplitudes for every way something can happen, then square to get the probability. It reaches far beyond slits.
+
+- **Atoms:** an electron held near a nucleus can only form certain stable amplitude patterns, a bit like the particular notes a guitar string can play (though nothing material is vibrating). Each pattern has a definite energy, so atoms have fixed energy levels and glow in sharp colors. Those fixed amounts, *quanta*, give the theory its name.
+- **Matter and technology:** the same rules explain chemical bonds, why metals conduct electricity, and how transistors, lasers and LEDs work.
+- **Quantum computers:** these are machines built to choreograph amplitudes so that the ways leading to wrong answers cancel and the ways leading to right answers reinforce.
+
+As far as anyone knows, quantum mechanics applies to everything, baseballs included. Part of the reason big objects don't show interference stripes is that air and light are constantly "recording" where they are, which is exactly the which-slit effect above.
+
+**Check yourself:** Suppose the which-slit detector records only half of the electrons, picked at random. What would the pattern on the screen look like?

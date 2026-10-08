@@ -1,0 +1,10 @@
+VERDICT: ship
+
+## Issues
+- [minor] "The electron's wave isn't made of anything; it only sets the odds" — Whether the wave is something real or only a tool for odds is an open question about interpretation, not settled physics. Many-worlds and pilot-wave views treat it as real. Here, "only" states one view as fact. Fix: "...isn't made of any material. What we know for sure is that it sets the odds of where the electron will be found (whether it is 'real' in some further sense is still debated)." Apply the same softening to "it's a wave of possibility" in the paragraph above, e.g. "you can think of it as a wave of possibility".
+- [minor] "The theory doesn't describe particles as following definite paths." — This is true of the standard formulation, but the pilot-wave (Bohmian) formulation makes the same predictions and does give particles definite paths. The opening line's "nature doesn't run like clockwork" leans the same way. What is established is that the predictions are probabilistic and that the classical orbit picture fails. Fix: "In its standard form, the theory doesn't describe particles as following definite paths."
+- [minor] "gives off just four sharp visible colors" — These are the four bright Balmer lines. Fainter lines continue toward violet and ultraviolet (e.g. 397 nm at the edge of vision). Fix: "gives off four bright, sharp visible colors". The figure can stay as it is.
+
+## Sound points worth keeping
+- The classical-collapse argument is correct, and so are its numbers: about 10^-11 s, frequency rising smoothly, a ground state about 0.1 nm across, h ≈ 6.6×10^-34 J·s, Balmer wavelengths 656/486/434/410 nm, E_n = -13.6/n² eV. Stability is correctly put down to the confinement and kinetic-energy trade-off, which is framed as a property of waves rather than measurement disturbance.
+- The guitar-string analogy comes with its limits stated. Measurement is defined as any interaction that records information, with no conscious observer needed. The "tiny solar system" picture is explicitly retired.

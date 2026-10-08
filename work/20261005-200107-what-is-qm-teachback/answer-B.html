@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lt;!-- strategy: Atoms that play only certain notes --&gt;</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']],
+  displayMath: [['$$','$$'],['\\[','\\]']] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<style>
+:root { --ink:#1A1E3A; --soft:#545A7A; --paper:#F4F6FA; --line:#D9DDEA; --accent:#5B3FD0; }
+@media (prefers-color-scheme: dark) { :root { --ink:#E7E9F6; --soft:#A3A8C6; --paper:#121429; --line:#2E3254; --accent:#A893FF; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font:18px/1.68 "Newsreader", Georgia, "Times New Roman", serif; }
+main { max-width:70ch; margin:0 auto; padding:40px 20px 80px; }
+h1,h2,h3 { line-height:1.3; }
+img { max-width:100%; height:auto; border:1px solid var(--line); border-radius:8px; background:#fff; }
+pre, table, mjx-container[display="true"] { overflow-x:auto; max-width:100%; }
+code { font-size:.88em; }
+table { border-collapse:collapse; } td, th { border:1px solid var(--line); padding:4px 8px; }
+blockquote { border-left:3px solid var(--line); margin:0; padding-left:14px; color:var(--soft); }
+strong { color:var(--accent); }
+</style></head>
+<body><main>
+<!-- strategy: Atoms that play only certain notes -->
+
+<p>Quantum mechanics is the physics of light and matter at the scale of atoms and below, named for its first big discovery: at that scale, energy often comes only in fixed amounts, or "quanta". An electron in an atom can have only certain energies, for much the same reason that a guitar string can sound only certain notes: the electron is described by a wave that gives the odds of finding it at each place, and a wave that is hemmed in has only certain steady patterns.</p>
+<p>You can see the evidence in color. Heat a gas of one element, or run electricity through it, and spread its glow with a prism: you see only certain sharp colors, a barcode unique to that element. Hydrogen's visible lines are red, blue-green, blue-violet and violet; neon's red-orange lines give neon signs their glow. A hot solid, like a light-bulb filament, gives a full rainbow instead.</p>
+<p>Classical (pre-quantum) physics can't explain this. Picture the atom as a tiny solar system, with electrons orbiting the nucleus like planets. Orbits could be any size, with any energy, so atoms should glow in a smooth smear of colors. Worse, an orbiting charge constantly gives off light, so the electron should spiral into the nucleus in roughly a hundred-billionth of a second.</p>
+<p>Now think of a guitar string. Because both ends are held fixed, its only steady vibration patterns, the ones that keep their shape, fit a whole number of half-waves along it: one hump, two humps, three, and so on. Each pattern sounds one note, more humps sound higher, and in-between patterns don't fit.</p>
+<!-- FIGURE: b-fits | A string with fixed ends at x = 0 and x = 1 (draw a small dark clamp at each end). Plot the first three allowed standing-wave shapes y = sin(n*pi*x) for n = 1, 2, 3, stacked with vertical offsets; draw each as a solid curve plus its mirror image -sin(n*pi*x) as a faint thin curve, to suggest the string swinging between them; label them 'pattern 1: one hump', 'pattern 2: two humps', 'pattern 3: three humps'. Below them, a dashed red curve y = sin(2.5*pi*x), which ends at height 1 instead of 0 at x = 1, with a red cross at that end and the label "doesn't fit". No numeric axes. What to notice: only whole numbers of half-waves fit between the fixed ends, and more humps means a higher note (for an electron's wave, a higher energy). -->
+
+<p>An electron in an atom is described by a wave too, and the nucleus's pull hems that wave in, so the wave has only certain steady patterns, each with its own energy. But the analogy breaks in three places:</p>
+<ul>
+<li>The electron's wave is not a vibration of any material. Where it is strong (strictly, where its size squared is large), the electron is likely to be found, and any detection finds a whole electron at one spot.</li>
+<li>A string can be plucked harder or softer, changing its energy but not its note. The electron's wave has no volume control: its size is fixed because it describes exactly one electron (the odds of finding it somewhere total 100%). So each pattern has one definite energy: the energy itself, not just the "note", comes in steps.</li>
+<li>An atom has no fixed ends and is three-dimensional: the trapped electron's wave must fade away far from the nucleus, and only certain 3D patterns, called orbitals, manage that. Their energies aren't spaced like a guitar's notes.</li>
+</ul>
+<p>Even so, the picture lets you predict a lot:</p>
+<ul>
+<li><strong>More wiggles, more energy</strong>, just as more humps make a higher note.</li>
+<li><strong>Squeeze the wave into a smaller space</strong> and every pattern must wiggle more tightly, so all the energies rise and the steps between them grow, just as shortening a guitar string by pressing it against a fret raises its notes. The same trade-off underlies Heisenberg's uncertainty principle: an electron can't have both a sharply pinned-down position and a sharply defined motion (physicists say momentum). That is a fact about waves, not about clumsy measuring tools.</li>
+<li><strong>There is a lowest pattern</strong>, the best compromise between staying near the nucleus, which attracts the electron, and not being squeezed into tight wiggles. Nothing lies below it, so the electron has nowhere lower to go, and atoms are stable.</li>
+<li><strong>Drops make colors.</strong> Heat or electricity lifts electrons into higher patterns; when one drops back down, the atom emits a photon, a single packet of light, carrying away the energy difference. A photon's energy $E$ and its frequency $f$ (which we see as color) are tied by $E = hf$, where $h$ is a tiny fixed number, Planck's constant. More energy means higher frequency: bluer light. So each drop makes one sharp color, one line of the barcode.</li>
+</ul>
+<!-- FIGURE: b-ladder | Two panels. Top: hydrogen's energy ladder, horizontal lines at E_n = -13.6/n^2 eV for n = 1 to 6, plus a dashed line at 0 labelled 'electron set free'; y-axis labelled 'energy', no numeric ticks; levels labelled 'level 1 (lowest)', 'level 2', ..., 'level 6'. Downward arrows from n = 3, 4, 5 and 6 to n = 2, coloured and labelled 656 nm (red), 486 nm (blue-green), 434 nm (blue-violet) and 410 nm (violet); a small note: 'drops to level 1 give ultraviolet light, invisible to us'. Bottom: two spectrum strips spanning 380-700 nm: a continuous rainbow labelled 'glowing hot solid: every color', and a black strip with four bright lines at 656, 486, 434 and 410 nm labelled 'hydrogen gas: only certain colors'. What to notice: each line in the barcode is one drop between allowed energies; a bigger drop gives bluer light; and the rungs crowd together toward the top, unlike a guitar string's evenly spaced frequencies. -->
+
+<p>These waves can also add up or cancel, which is called interference. Fire electrons one at a time at two narrow slits, and each lands as a single dot, yet the dots pile up into stripes, dark where the waves from the two slits cancel. If anything records which slit each electron used, the stripes vanish. The theory deals in odds: it can't say when a particular excited atom will drop, only the chances. The same rules make chemical bonds and run lasers, LEDs and computer chips. Big objects obey them too, but their energy steps are far too small to notice, and their surroundings keep "recording" where they are, washing out interference.</p>
+<p>Two pictures to drop: the atom as a tiny solar system, and the fuzzy "electron cloud" drawn in chemistry books as a fog of electron-stuff (it is a map of odds). "Observing" means any physical interaction that leaves a record, not a mind watching. The theory's predictions are among the most precisely tested in science; what really happens between measurements, and what the wave itself is, are still debated among rival interpretations.</p>
+<p>In one line: quantum mechanics describes matter and light with waves that give the odds of each result; the waves can add or cancel, and when hemmed in they allow only certain energies.</p>
+<p><strong>Check yourself:</strong> Quantum dots are crystal specks that trap electrons in a tiny space: would a smaller dot glow redder or bluer than a bigger one?</p>
+</main></body></html>

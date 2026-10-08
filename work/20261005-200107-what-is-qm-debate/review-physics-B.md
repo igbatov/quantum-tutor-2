@@ -1,0 +1,9 @@
+VERDICT: ship
+
+## Issues
+- [minor] "so the atom can only have certain energies" — An atom can also be in a superposition of rungs, with no single definite energy. The accurate claim is that measuring the energy only ever gives a rung value. This is harmless at the conceptual level because Step 1 and the interference section already lay the groundwork. Fix (optional): "so measuring the atom's energy only ever gives certain values".
+- [minor] "linked in ways no plan agreed in advance ... could produce" — This holds only for suitable choices of measurement on each side. For a single fixed measurement, a pre-agreed plan can reproduce the correlations. The sentence correctly describes the local-hidden-variable claim, so it isn't wrong, just compressed. Fix (optional): "measured along suitably chosen directions, their results are linked in ways no plan ... could produce".
+
+## Sound points worth keeping
+- The numbers are all correct: the ~10^-11 s classical collapse time, the 656/486/434/410 nm Balmer lines from the 3,4,5,6→2 drops, the -13.6/n^2 eV ladder, Lyman-alpha at ~122 nm, and the ~10^-10 m atom size. E = hf is used with frequency, not angular frequency. The bottom-rung argument (squeezing cost grows faster than the 1/r pull) is the right heuristic. Uncertainty is presented as a property of waves, not measurement disturbance.
+- Interpretations are handled carefully. "Measurement" means a physical record, not a person looking. Decoherence is kept separate from the open measurement problem. Interpretations are split from testable modifications such as collapse models. Entanglement is stated with no signalling. The guitar-string analogy's limits are stated explicitly, including why fixed normalization ties energy to shape. The quantum-dot check question has the correct answer: smaller dots glow bluer.

@@ -1,0 +1,11 @@
+VERDICT: ship
+
+## Issues
+- [minor] "If each electron simply went through one slit or the other" — the argument holds only if an electron's motion through one slit is unaffected by whether the other slit is open. The pilot-wave view described later has each electron go through one slit and still lose hits at the dark stripes, because both slits shape its path. A careful reader may think the text first rules out one-slit paths and then offers them back. Fix: make the hidden assumption explicit, e.g. "If each electron went through one slit, unaffected by whether the other slit was open, opening the second slit could only add hits there."
+- [minor] "the theory of how matter and light behave at the scale of atoms" — this suggests quantum mechanics stops applying to big things. The Records bullet later implies the opposite (big objects obey it, but their interference is washed out). Fix: "the theory of how matter and light behave, most visibly at the scale of atoms (it applies to everything, but its effects hide in big things)".
+- [minor] "quanta, hence the theory's name" — historically the name comes from Planck's and Einstein's discrete packets of energy, and from atoms' discrete energy levels, more than from whole-unit detection. That's harmless here, but the link is loose. Fix: "come in whole units, quanta, as does the energy of light and of atoms: hence the name."
+- [minor] "well-isolated molecules of hundreds of atoms still make stripes" — this is true but undersells the record: interference has been seen with molecules of about 2,000 atoms (Fein et al., 2019). Fix: "molecules of up to a couple of thousand atoms" (optional).
+
+## Sound points worth keeping
+- Amplitudes add and are then squared, records make you add chances instead, and "observing" means any physical record, not a mind. The core physics is stated correctly and without the "two places at once" trap. The figure specs are numerically right (P1 ≈ 0.95 and 0.62 at the marked dark stripes; the centre is twice the no-interference curve).
+- Interpretations are handled even-handedly: pilot wave and "no fact unless recorded" are both described, with the same predictions. Decoherence is flagged as leaving something unexplained, not as solving measurement.

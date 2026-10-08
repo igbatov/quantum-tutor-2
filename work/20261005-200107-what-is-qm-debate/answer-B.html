@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lt;!-- strategy: The atom that shouldn&#x27;t exist --&gt;</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']],
+  displayMath: [['$$','$$'],['\\[','\\]']] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<style>
+:root { --ink:#1A1E3A; --soft:#545A7A; --paper:#F4F6FA; --line:#D9DDEA; --accent:#5B3FD0; }
+@media (prefers-color-scheme: dark) { :root { --ink:#E7E9F6; --soft:#A3A8C6; --paper:#121429; --line:#2E3254; --accent:#A893FF; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font:18px/1.68 "Newsreader", Georgia, "Times New Roman", serif; }
+main { max-width:70ch; margin:0 auto; padding:40px 20px 80px; }
+h1,h2,h3 { line-height:1.3; }
+img { max-width:100%; height:auto; border:1px solid var(--line); border-radius:8px; background:#fff; }
+pre, table, mjx-container[display="true"] { overflow-x:auto; max-width:100%; }
+code { font-size:.88em; }
+table { border-collapse:collapse; } td, th { border:1px solid var(--line); padding:4px 8px; }
+blockquote { border-left:3px solid var(--line); margin:0; padding-left:14px; color:var(--soft); }
+strong { color:var(--accent); }
+</style></head>
+<body><main>
+<!-- strategy: The atom that shouldn't exist -->
+
+<p>Quantum mechanics is the theory of how matter and light behave at the scale of atoms (and, as far as we know, at every scale). The quickest way to see what it's about is a question that classical, pre-quantum physics gets spectacularly wrong: why do atoms exist at all? The quantum answer: an electron is described by a wave of possibilities, not as a tiny ball on a track, and that wave predicts only the chances of finding it here or there. A wave trapped around a nucleus can only settle into certain steady shapes, so the atom can only have certain energies, including a lowest one it can never fall below.</p>
+<p><strong>What classical physics predicts.</strong> Picture the atom many of us met at school: a tiny, heavy nucleus with an electron circling it like a planet. Add a law that every radio transmitter confirms: an electric charge that changes speed or direction gives off electromagnetic waves (light and radio waves are both kinds), losing energy. A circling electron changes direction constantly, so it should radiate nonstop and spiral into the nucleus in about a hundred-billionth of a second. As it fell it would circle ever faster, its light sweeping smoothly through the colours, so glowing hydrogen should give off a smear. And since orbits can be any size, no two hydrogen atoms would need to match.</p>
+<p>Three facts flatly contradict this:</p>
+<ul>
+<li>Atoms are stable: atoms in the oldest rocks have lasted billions of years.</li>
+<li>All hydrogen atoms are identical: same size, same colours.</li>
+<li>Glowing hydrogen shines in a few sharp colours, not a smear. Its four bright visible lines are red, blue-green, blue and violet (wavelengths 656, 486, 434 and 410 nanometres). Neon's own sharp colours are what make neon signs glow red-orange.</li>
+</ul>
+<p><strong>Step 1: a wave of possibilities.</strong> Quantum mechanics drops the planet picture and describes the electron by a wave spread around the nucleus, its <em>wavefunction</em>. The wave's value at each place is a number called an <em>amplitude</em>, and the amplitude's size sets the chance of finding the electron there. Yet any detection finds one whole electron at one spot. The fuzzy "clouds" in pictures of atoms are maps of those chances.</p>
+<p><strong>Step 2: a trapped wave can only settle into certain shapes.</strong> Think of a guitar string: pinned at both ends, its steady vibrations must fit a whole number of half-waves along it, so it plays only certain notes. The electron's wave, held in all around by the nucleus's electric pull rather than by pinned ends, likewise has only certain steady patterns. Two limits of the comparison matter. The electron's wave isn't a vibration of any material. And a string can play each note softly or loudly, but the electron's wave can't be made quieter or louder: it always describes exactly one electron. So its energy is set by its shape alone, and each allowed steady shape has one definite energy.</p>
+<p>That gives the atom a ladder of allowed energies, not of orbits, with gaps between the rungs. When the electron drops from a higher rung to a lower one, the energy difference leaves as a single packet of light, a photon. A photon's energy $E$ and its frequency $f$ (how many times per second its wave oscillates, which your eye sees as colour) are linked by Planck's constant $h$, a tiny fixed number:</p>
+<p>$$E = hf.$$</p>
+<p>In words: a fixed energy gap means a fixed frequency, so one sharp colour, and bigger drops give higher frequencies, towards blue and violet. Every hydrogen atom has the same ladder, hence the same colours.</p>
+<!-- FIGURE: b-ladder-and-lines | Two panels side by side. LEFT panel, titled "hydrogen's energy ladder": horizontal lines at E_n = -13.6/n^2 eV for n = 1 to 6 (-13.6, -3.40, -1.51, -0.85, -0.54, -0.38 eV) on a linear y-axis labelled "energy (eV)" running from -14 to 0; no x-axis ticks, and no drawing of a nucleus or orbits, so height reads as energy, not distance from the nucleus. Label the lines "rung 1" to "rung 6" at their right ends (if rungs 4, 5, 6 crowd, use one bracket label "higher rungs crowd together near 0"), and add to rung 1 the label "lowest rung: nothing below it". Draw downward arrows from rungs 3, 4, 5 and 6 to rung 2, spaced apart horizontally so they don't overlap, each coloured like the light it emits and labelled with its wavelength: 656 nm (red), 486 nm (blue-green), 434 nm (blue), 410 nm (violet). Add one grey dashed arrow from rung 2 down to rung 1 labelled "122 nm: ultraviolet, invisible". RIGHT panel: two horizontal strips over a shared wavelength axis from 400 to 700 nm, labelled "wavelength (nm)". Top strip: a continuous rainbow, labelled "classical expectation: a smear of all colours". Bottom strip: black with four thin bright lines at 410, 434, 486 and 656 nm, each in its own colour, labelled "what hydrogen actually emits". What to notice: each sharp colour is one drop between two rungs; bigger drops give bluer light (drops all the way to rung 1 are so big their light is invisible ultraviolet); the rungs are energies, not orbits; the bottom rung has nothing below it, so the atom can't collapse. -->
+
+<p><strong>Step 3: there is a bottom rung, with nothing below it.</strong> On it the electron has nowhere lower to drop, so it can't radiate energy away, and the atom can't collapse. Why must there be a bottom? Squeezing a wave into a small space forces it to mix many wavelengths, including short ones, and in quantum mechanics a shorter wavelength means more momentum (mass times velocity), so more energy of motion. The nucleus's pull draws the electron in; the cost of squeezing pushes back, and close in, that cost grows faster than the pull. Their balance sets the size of every hydrogen atom: roughly a ten-billionth of a metre across. This is the <strong>uncertainty principle</strong> at work: no wave can be both tightly located and of a single wavelength, so the electron can't have both a sharp position and a sharp momentum. It's a property of waves, not of clumsy measuring.</p>
+<p><strong>Zooming out.</strong> The atom has shown two of quantum mechanics' big ideas: <strong>quantization</strong> (anything confined, from atoms to electrons trapped in tiny crystals, has a ladder of allowed energies) and <strong>uncertainty</strong>. Two more complete a first map.</p>
+<p><strong>Amplitudes and interference.</strong> Unlike chances, amplitudes can cancel, as +1 and −1 do. When something can happen in several ways and nothing records which way it went, quantum mechanics adds the amplitudes for those ways, not their chances, and only then turns the total into a chance by squaring its size. Fire electrons one at a time (so they can't jostle each other) at two narrow slits: each lands on a screen behind the slits as a single dot, yet thousands of dots build up bright and dark stripes. At a dark stripe, opening the second slit <em>lowers</em> the number of hits, because there the amplitudes for the two routes cancel. This adding and cancelling is called interference. The stripes are predicted exactly; where each electron lands is not.</p>
+<p><strong>Entanglement.</strong> Two particles can share one joint wave that can't be split into a wave for each. However far apart they are then measured, their results are linked in ways no plan agreed in advance and carried by each particle could produce, yet never in a way that sends a message.</p>
+<p>These rules explain chemistry and make transistors, lasers and LEDs possible. In big, warm objects interference washes out, largely because they constantly leave records of their position in the air and light around them. The predictions are among the best-tested in science. Two questions are still open: what the wave "really is" (a physical thing, a summary of information, or something else), and why a measurement (any interaction that leaves a physical record, not a person looking) shows one definite result. Most proposed answers are interpretations with identical predictions; a few would change the theory slightly and are being tested.</p>
+<p><strong>Check yourself:</strong> Quantum dots are tiny crystals that trap electrons, and their size sets their glow colour. Would a smaller dot glow redder or bluer?</p>
+</main></body></html>
