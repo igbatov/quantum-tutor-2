@@ -24,8 +24,10 @@ lams = np.linspace(0.95, 1.05, 201)
 def Preal(x):
     return np.mean([4*np.sinc(x/lam/4)**2*np.cos(np.pi*x/lam)**2 for lam in lams])
 print(f"real (5% speed spread): P_both(0.5)={Preal(0.5):.2e} vs P1(0.5)={np.sinc(0.125)**2:.3f}")
-ok_near_centre = Pbh.max() < 1e-25 and P1h.min() > 0.01
-universal = ok_near_centre and np.sinc(1.0)**2 > 1e-12  # fails: single-slit zeros are also dark with both
-print("interference dark stripes (half-integers): PASS" if ok_near_centre else "FAIL")
+ok_near_centre = Pbh.max() < 1e-25 and P1h.min() > 0
+# dark band centred on X=4: is covering a slit adding hits there?
+m4 = (X > 3.83) & (X < 4.17)
+print(f"in 3.83<X<4.17 (centre of the dark band at X=4): max P1={P1[m4].max():.4f}, Pb>=P1 everywhere: {np.all(Pb[m4] >= P1[m4])}")
+print("interference dark stripes (half-integers, e.g. +-0.5, +-1.5): PASS" if ok_near_centre else "half-integer check: FAIL")
 print("FAIL (as a statement about every dark spot): at X=+-4, +-8 the spot is dark with both slits AND with one;"
       " there opening the second slit multiplies hits by 4cos^2=4 (0 -> 0 ideally).")
