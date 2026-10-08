@@ -12,11 +12,12 @@ def smooth_one_minus(r, spread=0.3, n=2001):
 r = np.logspace(-2, 3, 2000)
 tfade = 1/smooth_one_minus(r)
 ref = 6/(2*np.pi)**2/r**2
-print(f"small dx: tfade/ref at dx/lam=0.01: {tfade[0]/ref[0]:.4f}")
+print(f"small dx: smoothed tfade/ref at dx/lam=0.01: {tfade[0]/ref[0]:.4f} (expected 0.7*1.3 = 0.91 because <1/lam^2> over +-30% = 1/(0.7*1.3))")
+unsm = 1/(1-np.sinc(2*r[:5])); print(f"unsmoothed tfade/ref at dx/lam=0.01: {unsm[0]/ref[0]:.5f}")
 big = r > 0.5
 print(f"for dx/lam>0.5: tfade range {tfade[big].min():.3f} .. {tfade[big].max():.3f}; at dx/lam=20: {tfade[np.argmin(abs(r-20))]:.3f}")
 # window width where N*(1-overlap) = 1, sloped part
 w = lambda N: np.sqrt(6/N)/(2*np.pi)
 print(f"window dx/lam at N=1,10,100 (small-x approx): {w(1):.3f}, {w(10):.3f}, {w(100):.3f}; ratio per x10 = {w(1)/w(10):.3f} (sqrt10={np.sqrt(10):.3f})")
-ok = lead_ok and abs(tfade[0]/ref[0]-1) < 0.01 and tfade[big].min() > 0.75 and tfade[big].max() < 1.35
+ok = lead_ok and abs(tfade[0]/ref[0]-0.91) < 0.01 and abs(unsm[0]/ref[0]-1) < 1e-3 and tfade[big].min() > 0.75 and tfade[big].max() < 1.35
 print("PASS" if ok else "FAIL")

@@ -1,0 +1,23 @@
+import matplotlib; matplotlib.use("Agg")
+import matplotlib.pyplot as plt, numpy as np, os
+out = os.path.join(os.path.dirname(__file__), "..", "figures", "b-dust-grain.png")
+plt.rcParams.update({"font.size": 11})
+r = np.logspace(-2, 3, 3000)
+lam = np.linspace(0.7, 1.3, 1201)
+one_minus = np.mean(1 - np.sinc(2*r[:, None]/lam[None, :]), axis=1)
+t = 1/one_minus
+fig, ax = plt.subplots(figsize=(7.5, 4.6))
+ax.loglog(r, t, "k-", lw=2, label="fading time (isotropic scatterers, λ smoothed ±30%)")
+ax.loglog(r[r < 1], 6/(2*np.pi)**2/r[r < 1]**2, "k--", lw=1.2, label="(6/(2π)²)(λ/Δx)²  (∝ 1/Δx²)")
+ax.axhline(1, color="gray", ls=":", lw=1); ax.axvline(0.5, color="gray", ls=":", lw=1)
+ax.text(0.52, 2e3, "Δx = λ/2", fontsize=9, color="gray")
+for x, lab in [(0.01, "microwave\nbackground\n(λ≈1 mm)"), (20, "sunlight\n(λ≈0.5 µm)")]:
+    ax.plot(x, np.interp(x, r, t), "o", ms=8, mfc="white", mec="k", zorder=5)
+    ax.annotate(lab, (x, np.interp(x, r, t)), ((0.03, 3000) if x < 1 else (20, 30)), fontsize=9, arrowprops=dict(arrowstyle="->"))
+ax.annotate("air molecules\nΔx/λ ≈ 5×10⁵ →", (1000, 1), (150, 0.12), fontsize=9, arrowprops=dict(arrowstyle="->"))
+ax.set_xlim(0.01, 1000); ax.set_ylim(0.05, 1e5)
+ax.set_xlabel("separation / scatterer wavelength, Δx/λ")
+ax.set_ylabel("fading time / time between events")
+ax.set_title("Flat part: one event is a complete record.  Sloped part: many events needed.", fontsize=10)
+ax.legend(fontsize=9, loc="upper right")
+fig.tight_layout(); fig.savefig(out, dpi=150); print("saved", out)

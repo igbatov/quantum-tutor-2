@@ -1,0 +1,21 @@
+import matplotlib; matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+plt.rcParams.update({"font.size": 10})
+OUT = "/home/user/quantum-tutor-2/work/20261008-142932-which-path-decoherence/figures/a-relate-map.png"
+fig, ax = plt.subplots(figsize=(10, 5.2)); ax.set_xlim(0, 10); ax.set_ylim(0, 10); ax.axis("off")
+box = dict(boxstyle="round,pad=0.4", fc="white", ec="k", lw=1.3)
+ax.text(5, 9.2, "Model 2: joint wave of particle + tag\n(Schrödinger equation)", ha="center", va="center", bbox=box)
+ax.text(2.0, 6.3, "Model 1: two arrows for the tag\n(overlap = stripe strength)", ha="center", va="center", bbox=box)
+ax.text(8.0, 6.3, "decoherence: tag spread into very\nmany particles (overlaps multiply)", ha="center", va="center", bbox=box)
+ax.annotate("", xy=(2.4, 7.0), xytext=(4.2, 8.6), arrowprops=dict(arrowstyle="-|>", lw=1.5))
+ax.annotate("", xy=(7.6, 7.0), xytext=(5.8, 8.6), arrowprops=dict(arrowstyle="-|>", lw=1.5))
+ax.text(0.6, 8.0, "same theory, routes grouped,\ntag drawn as arrows", fontsize=8.5)
+ax.text(7.1, 8.0, "same theory, many taggers", fontsize=8.5)
+for x, t in [(1.2, "Copenhagen-style"), (3.5, "many-worlds"), (5.6, "pilot-wave")]:
+    ax.text(x, 3.0, t, ha="center", va="center", bbox=box)
+ax.plot([0.3, 0.3, 6.6, 6.6], [2.2, 1.9, 1.9, 2.2], "k-", lw=1)
+ax.text(3.45, 1.2, "identical predictions for both experiments;\nwhat 'erasing' means differs; open question", ha="center", fontsize=8.5)
+ax.text(8.5, 3.0, "objective collapse", ha="center", va="center", bbox=dict(boxstyle="round,pad=0.4", fc="white", ec="k", ls="--"))
+ax.text(8.5, 1.4, "a slightly different theory;\ndifference far too small to\nsee for a one-particle tag", ha="center", fontsize=8.5)
+fig.text(0.01, 0.01, "The two models are one theory at two levels of detail; decoherence is the same theory with many taggers; the three views agree on everything\nmeasured here, and collapse differs only for records far larger than these.", fontsize=8.5)
+fig.tight_layout(rect=(0, 0.06, 1, 1)); fig.savefig(OUT, dpi=150); print(OUT)

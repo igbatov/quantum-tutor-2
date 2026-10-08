@@ -1,0 +1,17 @@
+import matplotlib; matplotlib.use("Agg")
+import matplotlib.pyplot as plt, numpy as np, os
+out = os.path.join(os.path.dirname(__file__), "..", "figures", "b-many-records.png")
+plt.rcParams.update({"font.size": 11})
+fig, (a, b) = plt.subplots(1, 2, figsize=(9, 4))
+n = np.arange(7)
+for c, m, ls in [(0.95, "o", "-"), (0.5, "s", "--"), (0.02, "^", ":")]:
+    a.semilogy(n, c**n.astype(float), marker=m, ls=ls, color="k", label=f"overlap c = {c}")
+a.set_xlabel("number of scattering events n"); a.set_ylabel("visibility / no-collision value")
+a.set_ylim(1e-12, 2); a.legend(fontsize=9, loc="lower left")
+a.set_title("each recorder multiplies the stripe\nstrength by its own overlap", fontsize=10)
+p = np.linspace(0, 3, 300)
+b.plot(p, np.exp(-p), "k-", lw=2, label="exp(−p/p₀)")
+b.axhline(np.exp(-1), ls=":", color="k"); b.text(2.0, np.exp(-1)+0.03, "1/e", fontsize=10)
+b.set_xlabel("gas pressure p / p₀ (p₀ = 1/e pressure)"); b.set_ylabel("visibility / zero-pressure value")
+b.set_xlim(0, 3); b.set_ylim(0, 1.05); b.set_title("random number of collisions, mean ∝ p:\nV = exp(−mean·(1−c))", fontsize=10)
+fig.tight_layout(); fig.savefig(out, dpi=150); print("saved", out)
