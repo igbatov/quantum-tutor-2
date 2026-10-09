@@ -86,10 +86,14 @@ NF = len(Ts)
 # ---- photon sampling (Panel A)
 rng = np.random.default_rng(7)
 lam_s = np.logspace(np.log10(0.2e-6), np.log10(60e-6), 3000)
+_q = [0.0]
 def sample_lambda(T):
+    # quantile from a golden-ratio sequence (low-discrepancy) so the drawn short/long mix
+    # tracks the black-body share closely even with few photons on screen
     w = n_lam(lam_s, T) * lam_s  # density per log-lambda
     cdf = np.cumsum(w); cdf /= cdf[-1]
-    return np.interp(rng.random(), cdf, lam_s)
+    _q[0] = (_q[0] + 0.6180339887) % 1.0
+    return np.interp(_q[0], cdf, lam_s)
 
 RATE3000 = 1.4  # drawn photons per frame at 3000 K (display scale only)
 LIFE = 9        # frames a photon stays on screen
@@ -163,7 +167,7 @@ axB.set_ylabel("photons per unit λ per time\n(relative, common scale)", fontsiz
 axB.set_title("B  ideal black-body photon spectrum (computed)", fontsize=11, loc="left")
 lineB, = axB.loglog([], [], "k-", lw=2.2)
 fillB = [None]
-fracTxt = axB.text(2.5, 2e-7, "", fontsize=9)
+fracTxt = axB.text(3.0, 2e-7, "", fontsize=9)
 
 # Panel C static
 axC.plot(Tgrid, Vgrid, "k-", lw=2)
