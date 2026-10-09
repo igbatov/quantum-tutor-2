@@ -4,9 +4,9 @@ plt.rcParams.update({"font.size": 10})
 OUT = "/home/user/quantum-tutor-2/work/20261008-142932-which-path-decoherence/figures/a-erasure-views.png"
 fig, axs = plt.subplots(1, 4, figsize=(12, 4.4))
 txt = ["the tag is a record, read or not; erasing = measuring it so that it predicts nothing about the slit; sorting changes what you know, not the dots",
-       "a one-photon tag has not split the world; branches become permanent only when the record spreads into the surroundings",
+       "a tag in one atom or one photon pair has not split the world; branches become permanent only when the record spreads into the surroundings",
        "the photon took one route; the tag is truthful; the sorted subset is striped because one wave steers the pair",
-       "a one-particle tag is far too small to collapse; erasure works exactly as in standard theory, to within far less than anything measurable"]
+       "a one-particle tag is far too small to collapse; erasure works as in standard theory, differing only by far less than anything measurable"]
 titles = ["Copenhagen-style", "Many-worlds", "Pilot-wave", "Objective collapse"]
 for ax, t, tt in zip(axs, titles, txt):
     ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_xticks([]); ax.set_yticks([]); ax.set_title(t, weight="bold")

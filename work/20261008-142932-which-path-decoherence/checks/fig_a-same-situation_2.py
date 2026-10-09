@@ -15,7 +15,7 @@ ax.text(0.2, -1.0, "added: (+1) + (−1) = 0\nchance 0", fontsize=10)
 ax = axs[1]; ax.set_title("2. tag (A or B, told apart\nwith certainty)", fontsize=10)
 hand(ax, 1, 0.9, 1, '"dot here, tag A": +1'); hand(ax, 3, 0.9, -1, '"dot here, tag B": −1')
 ax.text(0.2, -1.0, "different situations, never added\nchance 1 + 1 = 2", fontsize=10)
-ax = axs[2]; ax.set_title("3. tag, then measured along\nthe halfway direction", fontsize=10)
+ax = axs[2]; ax.set_title("3. tag, then measured so that both\nresults are equally likely\nwhichever slit was used", fontsize=10)
 for y0, sgn, lab, res in [(1.5, -1, 'partner says +', "sum 0, chance 0"), (-0.6, +1, 'partner says −', "sum √2, chance 2")]:
     ax.text(0.0, y0+0.75, f'"dot here, {lab.split()[-1]}":', fontsize=8.5)
     for x, a, l in [(0.7, 1, "+1/√2"), (1.9, sgn, ("−1/√2" if sgn < 0 else "+1/√2"))]:
