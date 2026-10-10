@@ -10,7 +10,7 @@ w1, w2 = 1.0, 1.1
 a = b = 1 / np.sqrt(2)
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(7.5, 5.6))
 t = np.linspace(0, 6 * np.pi, 3000)
-ax1.plot(t, np.abs(np.exp(-1j * w1 * t))**2, "-", lw=2.2, label="hand rule |e^{-iω₁t}|² (flat)")
+ax1.plot(t, np.abs(np.exp(-1j * w1 * t))**2, "-", lw=2.2, label="hand rule |e^(−iω₁t)|² (flat)")
 ax1.plot(t, np.cos(w1 * t)**2, "--", lw=1.5, label="one real number cos²(ω₁t)")
 ax1.set_ylim(-0.05, 1.3); ax1.set_xlim(0, 6 * np.pi)
 ax1.set_xlabel("time t (units of 1/ω₁)"); ax1.set_ylabel("chance")

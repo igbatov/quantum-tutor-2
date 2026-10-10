@@ -9,20 +9,30 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "figures", 
 plt.rcParams.update({"font.size": 10})
 R = 3.29e15
 fig = plt.figure(figsize=(9, 4.6))
-gs = GridSpec(2, 2, height_ratios=[3.2, 1], width_ratios=[1.05, 1], hspace=0.55, wspace=0.3)
+gs = GridSpec(2, 2, height_ratios=[3.2, 1], width_ratios=[1.05, 1], hspace=0.35, wspace=0.3)
 
 ax = fig.add_subplot(gs[0, 0])
 for n in range(1, 7):
     T = R / n**2
     width = 1.0 - 0.1 * (n - 1)
     ax.hlines(T / 1e15, 0, width, color="k", lw=1.5)
-    ax.text(width + 0.03, T / 1e15, f"n={n}", va="center", fontsize=8)
-arrows = [(2, 1, 0.2, "Lyman-α\n2.47e15 Hz"), (3, 2, 0.45, "Balmer-α\n4.57e14 Hz"), (4, 2, 0.7, "Balmer-β\n6.17e14 Hz")]
-for hi, lo, xpos, lab in arrows:
+labs = {1: 3.29, 2: 0.82, 3: 0.52, 4: 0.30, 5: 0.12, 6: -0.06}   # label heights (spread out)
+for n, yl in labs.items():
+    width = 1.0 - 0.1 * (n - 1)
+    ax.annotate(f"n={n}", xy=(width, R / n**2 / 1e15), xytext=(1.12, yl), fontsize=7.5, va="center",
+                arrowprops=dict(arrowstyle="-", lw=0.5, color="0.5"))
+arrows = [(2, 1, 0.2, "Lyman-α 2.47e15 Hz", (0.24, 2.0)),
+          (3, 2, 0.45, "Balmer-α 4.57e14 Hz", (0.3, 1.55)),
+          (4, 2, 0.62, "Balmer-β 6.17e14 Hz", (0.55, 1.2))]
+for hi, lo, xpos, lab, txy in arrows:
     y0, y1 = R / hi**2 / 1e15, R / lo**2 / 1e15
     ax.annotate("", xy=(xpos, y1), xytext=(xpos, y0), arrowprops=dict(arrowstyle="<->", lw=1.2))
-    ax.text(xpos + 0.02, (y0 + y1) / 2 + (0.2 if lo == 1 else 0.0), lab, fontsize=7.5, va="center")
-ax.set_xlim(0, 1.35); ax.set_xticks([])
+    if lo == 1:
+        ax.text(txy[0], txy[1], lab, fontsize=7.5, va="center")
+    else:
+        ax.annotate(lab, xy=(xpos, (y0 + y1) / 2), xytext=txy, fontsize=7.5, va="center",
+                    arrowprops=dict(arrowstyle="-", lw=0.5, color="0.5"))
+ax.set_xlim(0, 1.35); ax.set_ylim(-0.2, 3.5); ax.set_xticks([])
 ax.set_ylabel("term R/n² (10¹⁵ Hz)")
 ax.set_title("Hydrogen terms; a line = a difference of two terms", fontsize=9.5)
 
