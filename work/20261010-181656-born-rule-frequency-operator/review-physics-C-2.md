@@ -1,0 +1,20 @@
+VERDICT: revise
+
+## Issues
+- [major] "Then the chance of R must be the squared length" (Model 3, Cons; also the Gleason row of the closing table, "Assumes" column). This is true only under a condition the text does not state. From its assumptions, Gleason's theorem gives only that chances have the form Tr(ρP) for *some* density operator ρ. To get the squared length of *this* state ψ, you also need ρ = |ψ⟩⟨ψ|. In other words, ψ must give certainty to the outcome "ψ itself", which is the certainty rule (eigenvalue–eigenstate link). The essay treats that rule as the key contested assumption of the frequency route (Model 2, Con (i)) but leaves it out of Gleason's list. That makes the comparison uneven and suggests Gleason needs less than it does. Fix: in Model 3 add "...and the state must give certainty to itself (the same certainty rule Model 2 uses); then the chance of R must be..."; in the table, add "the state gives itself probability 1" to Gleason's "Assumes" cell.
+- [major] "Physicists call this list the *tensor product* ψ⊗ψ⊗⋯⊗ψ" (Model 1, Intuition; with the "product rule" and "every electron prepared identically"). This is an unnamed idealization that is false as written for electrons. Electrons are identical fermions, and the state of N electrons in literally the same single-electron state ψ is forbidden by the Pauli principle (the antisymmetrized product is zero). The product form is legitimate here only because the electrons are emitted far apart in time (about 120 km apart, as the text says). Their wave packets never overlap, so each one can be labelled by its arrival order and treated as a distinct copy with the same in/out amplitudes. Fix: add to the idealizations list: "Electrons are identical particles, but here they never overlap, so each can be labelled by its arrival order and treated as a separate copy. 'Prepared identically' means the same in/out amplitudes c₀, c₁ for each, not the same state at the same time; that is what makes the product list (tensor product) correct."
+- [minor] "almost always stays inside twice it" (caption of c-buildup-fraction). This is ambiguous. At a given N, about 95% of runs lie within two standard deviations. A whole run across all N up to 70 000 has a sizeable chance of stepping outside the 2σ band somewhere (the band does not widen in the way the law of the iterated logarithm requires). Fix: "at any given N about 95% of runs lie inside twice it, and this run stays inside it throughout."
+- [minor] "I count it as a third assumption" ((R3), Everett's derivation). True, but more than is needed. Weights are non-negative, and for a non-negative additive g, g(x+y) = g(x) + g(y) ≥ g(x) already makes g non-decreasing, so the wild solutions are excluded with no extra assumption. Fix: "(R3) follows from weights being non-negative: g(x+y) = g(x)+g(y) ≥ g(x); the wild solutions of the equation all take negative values somewhere."
+- [minor] "Ochs (1977)" in the Model 2 Sources has no journal. Fix: Ochs, *J. Philos. Logic* 6, 473 (1977), or drop it if this cannot be confirmed.
+
+## Sound points worth keeping
+- All seven round-one majors are fixed correctly: Gleason's conditions now go beyond the regions of the screen, the closing-table header has the objective-collapse caveat, the 2^N branches are coarse, the variance (not the SD) equals the floor, the line is now "no chance other than certainty", the relation paragraph is honest about finite N, and the supporters' Gleason reply is hedged. The minor sourcing and caption slips are corrected too.
+- I re-checked all the numbers, and they are correct:
+  - the N = 2, 3, 4 and 20 tables and the 0.588 vs 0.0026 split;
+  - the variance identity and its N = 3 check;
+  - the parabola values at N = 2;
+  - the Chebyshev bounds and the exact maverick weight ≈ 7×10⁻⁵;
+  - e^{-15.2}, 0.302 at N = 10, and the SD table;
+  - f_q, the norm totals and the N = 20 peaks;
+  - the zero window at N = 11–14.
+- All seven figures match their captions and the text. No plotted range hides anything that contradicts the text.
