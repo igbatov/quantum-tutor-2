@@ -1,0 +1,25 @@
+import matplotlib; matplotlib.use("Agg")
+import matplotlib.pyplot as plt, numpy as np, os
+out=os.path.join(os.path.dirname(__file__),"..","figures","c-wiggle-rule.png")
+plt.rcParams.update({"font.size":11})
+f=lambda x,e: x**2+e*x**2*(1-x**2)*(2*x**2-1)
+E=[(0,"-","ε = 0 (square)"),(0.8,"--","ε = +0.8"),(-0.8,":","ε = −0.8")]
+fig,ax=plt.subplots(1,3,figsize=(11,4.2))
+x=np.linspace(0,1,500)
+for e,ls,lab in E: ax[0].plot(x,f(x,e),ls,lw=2,label=lab,color="k" if e==0 else None)
+ax[0].plot([0,1/np.sqrt(2),1],[0,0.5,1],"o",mfc="w",mec="k"); ax[0].annotate("all cross at x = 1/√2",xy=(1/np.sqrt(2),.5),xytext=(0.02,0.75),arrowprops=dict(arrowstyle="->"),fontsize=9)
+ax[0].set_xlabel("shadow x"); ax[0].set_ylabel("chance f(x)"); ax[0].set_title("the rule",fontsize=10); ax[0].legend(fontsize=8,loc="lower right")
+th=np.linspace(0,90,300); t=np.radians(th)
+for e,ls,lab in E: ax[1].plot(th,f(np.cos(t),e)+f(np.sin(t),e),ls,lw=2,label=lab,color="k" if e==0 else None)
+ax[1].set_ylim(0.75,1.25); ax[1].text(45,1.05,"all three ε values: exactly 1",ha="center",fontsize=9); ax[1].set_xlabel("arrow angle θ (degrees)"); ax[1].set_ylabel("f(cos θ) + f(sin θ)"); ax[1].set_title("two exits: total stays 1",fontsize=10)
+# path from (1,0,0) to (1,1,1)/sqrt3 along great circle
+a=np.array([1,0,0.]); b=np.ones(3)/np.sqrt(3); Om=np.arccos(a@b); s=np.linspace(0,1,300)
+path=np.array([(np.sin((1-k)*Om)*a+np.sin(k*Om)*b)/np.sin(Om) for k in s]); ang=np.degrees(np.arccos(path[:,0]))
+for e,ls,lab in E:
+    tot=f(np.abs(path),e).sum(axis=1); ax[2].plot(ang,tot,ls,lw=2,label=lab,color="k" if e==0 else None)
+    ax[2].text(ang[-1]+0.5,tot[-1],"%.3f"%tot[-1],va="center",fontsize=9)
+ax[2].set_xlim(0,62); ax[2].set_ylim(0.75,1.25); ax[2].set_xlabel("angle from first axis (degrees)"); ax[2].set_ylabel("f(x1)+f(x2)+f(x3)")
+ax[2].set_title("three exits: (1,0,0) → (1,1,1)/√3",fontsize=10)
+for a_ in ax: a_.grid(alpha=0.3)
+fig.text(0.5,0.01,"A non-power rule keeps two-exit totals at 1 for every arrow, but with three exits the total drifts to 1 − 2ε/9 at (1,1,1)/√3.",ha="center",fontsize=9)
+fig.tight_layout(rect=(0,0.05,1,1)); fig.savefig(out,dpi=150); print("saved",os.path.abspath(out))
