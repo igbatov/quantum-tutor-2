@@ -32,7 +32,7 @@ axR.plot(th, np.cos(th), ":", lw=1.4, color="0.4", label="the real number cos θ
 axR.plot(th_marks, np.cos(th_marks)**2, "o", color="C1")
 axR.set_xticks(np.arange(0, 2 * np.pi + 0.01, np.pi / 2)); axR.set_xticklabels(["0", "π/2", "π", "3π/2", "2π"])
 axR.set_xlabel("θ = Et/ħ (one period of the frequency E/h)")
-axR.set_ylabel("value / \"chance of up\"")
+axR.set_ylabel("value / \"chance of along\"")
 axR.set_ylim(-1.1, 1.45)
 axR.legend(fontsize=7.8, loc="lower left", ncol=1)
 axR.set_title("cos²θ hits 0 twice per period; the hand's length never changes", fontsize=9.5)
