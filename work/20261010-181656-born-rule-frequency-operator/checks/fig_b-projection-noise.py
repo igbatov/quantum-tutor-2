@@ -1,0 +1,20 @@
+import os, numpy as np, matplotlib
+matplotlib.use("Agg"); import matplotlib.pyplot as plt
+plt.rcParams.update({"font.size":11})
+out=os.path.join(os.path.dirname(os.path.abspath(__file__)),"..","figures","b-projection-noise.png")
+p=np.linspace(0,1,1001)
+fig,ax=plt.subplots(figsize=(7.5,4.5))
+for N,ls,mk in [(10,"-",None),(100,"--",None),(1000,":",None)]:
+    s=np.sqrt(p*(1-p)/N); ax.plot(p,s,ls,lw=2.2,label=f"N = {N} (max {np.sqrt(0.25/N):.3g} at p = 1/2)")
+ax.plot(p,0*p,"-",color="k",lw=3,alpha=0.5,label='fixed-share glow picture: no projection noise')
+ax.plot([0,1],[0,0],"ko",ms=8,zorder=5)
+ax.annotate("certainty end p = 0:\nevery curve is 0",xy=(0,0),xytext=(0.02,0.075),arrowprops=dict(arrowstyle="->"),fontsize=9)
+ax.annotate("certainty end p = 1:\nevery curve is 0",xy=(1,0),xytext=(0.78,0.075),arrowprops=dict(arrowstyle="->"),fontsize=9)
+ax.plot([0.5,0.1],[0.05,0.03],"s",color="C1",ms=6)
+ax.annotate("N = 100: count spread = 100 x fraction spread:\n5 ions at p = 1/2, 3 ions at p = 0.1",xy=(0.5,0.05),xytext=(0.30,0.105),arrowprops=dict(arrowstyle="->"),fontsize=9)
+ax.annotate("",xy=(0.1,0.03),xytext=(0.32,0.103),arrowprops=dict(arrowstyle="->"))
+ax.set_xlabel("share p of each ion in the up level (set by the pulse)")
+ax.set_ylabel("run-to-run spread of the fraction found up\n(standard deviation, dimensionless)")
+ax.set_title("Quantum projection noise: the binomial spread the 1993 ion experiment matched",fontsize=11)
+ax.set_xlim(-0.02,1.02); ax.set_ylim(-0.006,0.175); ax.legend(fontsize=9,loc="upper right",bbox_to_anchor=(1,1.0))
+fig.tight_layout(); fig.savefig(out,dpi=150); print(out)

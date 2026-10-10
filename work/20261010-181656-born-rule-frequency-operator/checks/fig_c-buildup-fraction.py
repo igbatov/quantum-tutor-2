@@ -1,0 +1,35 @@
+import numpy as np, matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
+from scipy.optimize import brentq
+plt.rcParams.update({'font.size':10})
+OUT='/home/user/quantum-tutor-2/work/20261010-181656-born-rule-frequency-operator/figures/c-buildup-fraction.png'
+x=np.linspace(-4,4,400001)
+I=np.cos(np.pi*x)**2*np.sinc(x/4)**2   # np.sinc(t)=sin(pi t)/(pi t) -> sin(pi x/4)/(pi x/4)
+cdf=np.cumsum(I); cdf/=cdf[-1]
+share=lambda a: np.interp(a,x,cdf)-np.interp(-a,x,cdf)
+a=brentq(lambda a: share(a)-0.8,0.01,4); print("a =",a,"share",share(a))
+rng=np.random.default_rng(1989)
+fig=plt.figure(figsize=(11,4.6))
+gs=fig.add_gridspec(4,2,width_ratios=[1.1,1],hspace=0.55,wspace=0.25)
+for i,N in enumerate([10,100,3000,20000]):
+    ax=fig.add_subplot(gs[i,0]); xs=np.interp(rng.random(N),cdf,x); ys=rng.random(N)
+    ax.axvspan(-a,a,color='0.85',zorder=0,hatch='//',edgecolor='0.6',lw=0)
+    ax.scatter(xs,ys,s=max(0.3,6/np.sqrt(N)*3),c='k',lw=0)
+    ax.set_xlim(-4,4); ax.set_yticks([]); ax.set_ylabel(f"N={N}",rotation=0,ha='right',va='center')
+    if i<3: ax.set_xticklabels([])
+    else: ax.set_xlabel("x on screen (units of stripe spacing)")
+    if i==0: ax.set_title(f"Simulated frames; hatched band R: |x| ≤ {a:.2f} (80% of the pattern)",fontsize=9)
+ax=fig.add_subplot(gs[:,1])
+N=np.arange(1,70001); seq=rng.random(70000)<0.8; f=np.cumsum(seq)/N
+ax.semilogx(N,f,'k-',lw=0.9,label='running fraction in R (one simulated run)')
+ax.axhline(0.8,color='C3',lw=1.2,label='0.8')
+sd=np.sqrt(0.16/N)
+ax.semilogx(N,0.8+sd,'b--',lw=1,label='0.8 ± √(0.16/N)  (±1 standard deviation)')
+ax.semilogx(N,0.8-sd,'b--',lw=1)
+ax.semilogx(N,0.8+2*sd,'g:',lw=1.3,label='0.8 ± 2√(0.16/N)  (±2 standard deviations)')
+ax.semilogx(N,0.8-2*sd,'g:',lw=1.3)
+ax.set_ylim(0.3,1.02); ax.set_xlim(1,70000)
+ax.set_xlabel("number of electrons N (log scale)"); ax.set_ylabel("fraction of dots inside R")
+ax.legend(fontsize=8,loc='lower right'); ax.set_title("Running fraction settles toward 0.8",fontsize=10)
+fig.suptitle("Simulation under the squared-amplitude rule imitating the published frames, not the Hitachi data",fontsize=10)
+fig.savefig(OUT,dpi=150,bbox_inches='tight'); print("saved",OUT)
+o=np.abs(f-0.8)>sd; print("fraction of N>=1000 outside 1-SD band in this run:",o[999:].mean(),"; outside 2-SD:",(np.abs(f-0.8)>2*sd)[999:].mean())

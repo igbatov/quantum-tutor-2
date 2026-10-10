@@ -6,13 +6,14 @@ from mpmath import mp, binomial, mpf
 p=0.8; ok=True
 for N,claim in [(1000,0.064),(10**4,0.0064),(70000,0.0009)]:
     b=0.16/(N*0.05**2); print("N",N,"bound",b,"claimed",claim); ok&=abs(b-claim)/claim<0.02
+from fractions import Fraction as Fr
 def mav(N,eps):
-    mp.dps=50; P=mpf(p)
-    return sum(binomial(N,m)*P**m*(1-P)**(N-m) for m in range(N+1) if abs(mpf(m)/N-P)>eps+mpf(10)**-30)
+    mp.dps=50; P=mpf(4)/5; Pf=Fr(4,5)
+    return sum(binomial(N,m)*P**m*(1-P)**(N-m) for m in range(N+1) if abs(Fr(m,N)-Pf)>eps)
 def mav_sc(N,eps):
     m=np.arange(N+1); sel=np.abs(m/N-p)>eps+1e-12
     return binom.pmf(m[sel],N,p).sum()
-w=mav(1000,mpf('0.05'))
+w=mav(1000,Fr(1,20))
 lo=sum(binom.pmf(m,1000,p) for m in range(0,750)); hi=sum(binom.pmf(m,1000,p) for m in range(851,1001))
 print("N=1000 eps=0.05 exact maverick weight",float(w)," lower tail m<750:",lo," upper tail m>850:",hi)
 print("  (if boundary m=750,850 counted as maverick:",mav_sc(1000,0.05-1e-9),")")
