@@ -6,7 +6,7 @@ t,p=sp.symbols('t p',real=True)
 ok=True
 for aval in [sp.Rational(3,5), -sp.Rational(3,5), sp.Rational(7,4), -sp.Rational(1,3)]:
     for g in [sp.Rational(2,7), -sp.Rational(5,3)]:
-        for pv in [sp.Rational(1,2),1,sp.Rational(3,2),2,3,sp.Rational(5,2),4]:
+        for pv in [sp.Rational(1,2),sp.Integer(1),sp.Rational(3,2),sp.Integer(2),sp.Integer(3),sp.Rational(5,2),sp.Integer(4)]:
             expr=(sp.Abs(aval)**pv)*(1+g/aval*t)**pv   # = |a+tg|^p for small t
             full=sp.expand(sp.series(expr,t,0,3).removeO())
             ser=sum(full.coeff(t,k)*t**k for k in range(3))
@@ -32,9 +32,9 @@ print('"corner or cusp" true for 1<p<2?', corner_wording_ok, '(differentiable, s
 
 # p>2: Q=0 with a,b nonzero forces g=d=0
 a,b,g,d=sp.symbols('a b g d',real=True)
-pv=3
+pv=sp.Integer(3)
 Q=sp.Rational(pv*(pv-1),2)*(sp.Abs(a)**(pv-2)*g**2+sp.Abs(b)**(pv-2)*d**2)
-print('p=3 Q is sum of nonneg terms; zero only for g=d=0:', sp.solve([sp.Eq(Q.subs({a:1,b:2}),0)],[g,d],dict=True) )
+Qs=sp.expand(Q.subs({a:1,b:2})); print('p=3 Q(a=1,b=2) =',Qs,'-> real solutions of Q=0:', [s for s in sp.solve(Qs,d,dict=True) if s[d].is_real], '(only g=d=0 when g real)')
 # numerical: for p=3, random mixing matrices with columns of p-total 1 cannot keep 1+|t|^p
 from scipy.optimize import minimize
 worst=[]
