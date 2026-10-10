@@ -2,7 +2,7 @@
 # table p=0.1: f_q = 1/4, 1/10, 1/28=0.0357, 1/82=0.0122; totals 1.2649^N, 1, 0.8854^N, 0.82^N;
 # "Only q=2 delivers p"; "equal amplitudes ... every q gives 1/2"; 2-norm only preserved by small mixing maps (Banach-Lamperti)
 import numpy as np, sympy as sp
-from math import comb
+from math import comb, lgamma
 ok=True
 c0,c1=np.sqrt(.9),np.sqrt(.1)
 q_,N_,m_=sp.symbols('q N m',positive=True)
@@ -10,9 +10,9 @@ ratio=sp.simplify(sp.binomial(N_,m_+1)/sp.binomial(N_,m_)); print("C(N,m+1)/C(N,
 ok&=sp.simplify(sp.combsimp(ratio)-(N_-m_)/(m_+1))==0
 for q,ft,tot in [(1,0.25,1.2649),(2,0.10,1.0),(3,0.0357,0.8854),(4,0.0122,0.82)]:
     f=c1**q/(c0**q+c1**q); T=c0**q+c1**q
-    N=2000; v=np.array([comb(N,m)*(c0**q)**(N-m)*(c1**q)**m for m in range(N+1)],dtype=float) if q>=2 else None
+    N=2000
     # use logs to avoid overflow
-    lv=np.array([np.log(float(comb(N,m))) if comb(N,m)<1e300 else sum(np.log(np.arange(N-m+1,N+1)))-sum(np.log(np.arange(1,m+1))) for m in range(N+1)])+q*((N-np.arange(N+1))*np.log(c0)+np.arange(N+1)*np.log(c1))
+    lv=np.array([lgamma(N+1)-lgamma(m+1)-lgamma(N-m+1) for m in range(N+1)])+q*((N-np.arange(N+1))*np.log(c0)+np.arange(N+1)*np.log(c1))
     peak=np.argmax(lv)/N
     print(f"q={q}: f_q={f:.4f} (1/(3^q+1)={1/(3**q+1):.4f}, text {ft}), peak m/N at N=2000: {peak:.4f}, base={T:.4f} (text {tot})")
     ok&=abs(f-ft)<6e-5 and abs(f-1/(3**q+1))<1e-12 and abs(T-tot)<6e-5 and abs(peak-f)<1e-3
