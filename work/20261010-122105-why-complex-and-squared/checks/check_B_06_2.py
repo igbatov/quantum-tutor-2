@@ -14,11 +14,12 @@ ok = sp.simplify(lhs - inter) == 0
 ok &= sp.simplify(sp.diff(pb*sp.diff(psi, x) - psi*sp.diff(pb, x), x) - (pb*sp.diff(psi, x, 2) - psi*sp.diff(pb, x, 2))) == 0
 J = sp.I*hb/(2*m)*(psi*sp.diff(pb, x) - pb*sp.diff(psi, x))
 ok &= sp.simplify(lhs + sp.diff(J, x)) == 0
-ok &= sp.simplify(J - hb/m*sp.im(sp.expand(pb*sp.diff(psi, x)))) == 0
+# Im(psibar psi') with psi = u + i v is u v' - v u'
+ok &= sp.simplify(sp.expand(J - hb/m*(u*sp.diff(v, x) - v*sp.diff(u, x)))) == 0
 ok &= sp.simplify(J.subs(v, 0).doit()) == 0
 A = sp.symbols('A'); pw = A*sp.exp(sp.I*k*x)
 Jpw = sp.simplify(sp.I*hb/(2*m)*(pw*sp.diff(sp.conjugate(pw), x) - sp.conjugate(pw)*sp.diff(pw, x)))
-print("plane-wave J =", Jpw); ok &= sp.simplify(Jpw - hb*k/m*sp.Abs(A)**2) == 0
+print("plane-wave J =", Jpw); ok &= sp.simplify(Jpw - hb*k/m*A*sp.conjugate(A)) == 0
 sw = sp.cos(k*x); ok &= sp.simplify(sp.I*hb/(2*m)*(sw*sp.diff(sw, x) - sw*sp.diff(sw, x))) == 0
 # real Gaussian at t=0 (free): d psi/dt = (i hbar/2m) psi'' is purely imaginary and nonzero
 g = sp.exp(-x**2); dg = sp.I*hb/(2*m)*sp.diff(g, x, 2)
