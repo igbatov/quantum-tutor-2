@@ -20,3 +20,13 @@ The twin's behaviour is in `twin/profile.md`. Edit it by hand if the analyst got
 ## Moving to its own repository
 
 This directory needs nothing from the parent repository (it carries its own copy of the quantum-explainer skill). To make it a separate repository, copy the directory or run `git subtree split -P ps-tutor`.
+
+## Using it in the cloud (claude.ai/code)
+
+Cloud sessions always open at the repository root, so the three agents and the `/ps` skill are installed there too. From any session on this repository:
+
+- `ps: <question>` runs the loop and shows the consolidated answer;
+- `prof: <question>` asks the professor directly and lets the analyst learn from your question;
+- all files still live under `ps-tutor/`.
+
+Newly added agents are picked up when a session starts, so after pulling these files begin a fresh session. If you later split `ps-tutor/` into its own repository, open that repository in the cloud and the unprefixed routing in `ps-tutor/CLAUDE.md` applies.
