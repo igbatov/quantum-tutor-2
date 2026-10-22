@@ -1,0 +1,4 @@
+You said 't_P marks where no small parameter is left'. But no small parameter only means expansion does not work, theory itself can still be right there. So why Planck time is limit of our theories and not just limit of perturbation method?
+
+---
+Trigger 5 (unclear logical status, limit vs. failure: "so what?"), in the learner's "You said '...'. But ..." form. It fired on the closing sentence of section 4: "t_P = ħ/E_P marks where no small parameter is left (scales near ℓ_P, t_P). It does not mark a failure for every process with E > E_P." After five corrections the answer has narrowed the claim to "no expansion parameter", and this learner has pushed before on whether such a limit means the theory is wrong. The runner-up was trigger 7 or a consolidation request, since every answer in this run opened with "You're right".

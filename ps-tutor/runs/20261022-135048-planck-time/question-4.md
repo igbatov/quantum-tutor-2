@@ -1,0 +1,4 @@
+You said 'that conversion moves ħ between orders, in both directions'. But (E/E_P)² in answer-2 was got exactly by this conversion, k = E/ħc. So why it is still the size of quantum corrections and not just of loop terms?
+
+---
+Trigger 5 (unclear logical status), worded as the learner's "You said '...'. But ..." form, with trigger 3 (loop term treated as the same as quantum correction) behind it. It fired on section 4: "Physical results are usually expressed through masses m and energies ħω, and that conversion moves ħ between orders, in both directions". That sentence undercuts the step k = E/ħc that answer-2 used to get GE²/ħc⁵, which the whole run has been trying to justify. Remaining trigger-1 candidates were weaker: the mc/ħ cancellation is labelled "not verified", which the profile exempts, and the derivation of ħ/k² from A⁻¹ is a short step this learner can follow.
