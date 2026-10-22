@@ -10,3 +10,4 @@ This project is a quantum mechanics tutor, not a codebase. The person working he
 - Learner notes live in `learner/profile.md` and `learner/history.md`. The learner may edit them by hand; their edits win.
 - Each run's working files live in `work/<run-id>/`.
 - Keep your own messages short. The explanation itself is the answer; don't add commentary around it.
+- `ps-tutor/` is a separate project (professor, digital-twin student, analyst). When Claude Code is started in `ps-tutor/`, the rules in `ps-tutor/CLAUDE.md` take precedence over the routing above.
