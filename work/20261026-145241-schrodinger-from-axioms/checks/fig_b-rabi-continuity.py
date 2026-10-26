@@ -20,9 +20,9 @@ ax.plot(ts*1e6, curve, "k-", lw=2, label="one pulse of length t")
 ax.plot((t1+seg2)*1e6, p2, "--", color="tab:orange", lw=2.5, label="pulse 1 (30 µs), then pulse 2")
 ax.plot(t1*1e6, P(psi1), "o", ms=9, mfc="white", mec="k", mew=2)
 ax.plot((t1+t2)*1e6, P(psi12), "s", ms=10, mfc="tab:orange", mec="k", mew=1.5)
-ax.annotate(f"after 30 µs: P = {P(psi1):.3f}", (30, P(psi1)), (36, 0.80), fontsize=10,
+ax.annotate(f"after 30 µs:\nP = {P(psi1):.3f}", (30, P(psi1)), (3, 0.76), fontsize=10,
             arrowprops=dict(arrowstyle="->"))
-ax.annotate(f"30 µs + 50 µs: P = {P(psi12):.3f}\n= single 80 µs pulse", (80, P(psi12)), (92, 0.12), fontsize=10,
+ax.annotate(f"30 µs + 50 µs: P = {P(psi12):.3f}\n= single 80 µs pulse", (80, P(psi12)), (55, 0.07), fontsize=10, ha="center",
             arrowprops=dict(arrowstyle="->"))
 ax.set_xlabel("pulse length t (µs)"); ax.set_ylabel("spin-flip probability P(t)")
 ax.set_xlim(0, 200); ax.set_ylim(-0.02, 1.12)
