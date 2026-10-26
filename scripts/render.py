@@ -2,7 +2,9 @@
 """Render a tutor answer (Markdown + LaTeX) to a standalone HTML page next to it.
 
 Usage: python3 scripts/render.py work/<run-id>/final.md
-Writes answer.html next to it (final-A.md becomes answer-A.html). Math is rendered in the browser by MathJax.
+Writes answer.html next to it (final-A.md becomes answer-A.html). Math is rendered in the browser by MathJax (CDN).
+For an offline file with formulas pre-rendered as SVG and images embedded:
+  NODE_PATH=<dir with mathjax-full> node scripts/prerender_math.js answer-A.html tmp.html && python3 scripts/embed_images.py tmp.html answer-A-standalone.html
 """
 import html
 import re
