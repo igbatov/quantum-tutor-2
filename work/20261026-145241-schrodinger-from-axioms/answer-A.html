@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lt;!-- strategy: Boosted matter waves --&gt;</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']],
+  displayMath: [['$$','$$'],['\\[','\\]']] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<style>
+:root { --ink:#1A1E3A; --soft:#545A7A; --paper:#F4F6FA; --line:#D9DDEA; --accent:#5B3FD0; }
+@media (prefers-color-scheme: dark) { :root { --ink:#E7E9F6; --soft:#A3A8C6; --paper:#121429; --line:#2E3254; --accent:#A893FF; } }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font:18px/1.68 "Newsreader", Georgia, "Times New Roman", serif; }
+main { max-width:70ch; margin:0 auto; padding:40px 20px 80px; }
+h1,h2,h3 { line-height:1.3; }
+img { max-width:100%; height:auto; border:1px solid var(--line); border-radius:8px; background:#fff; }
+pre, table, mjx-container[display="true"] { overflow-x:auto; max-width:100%; }
+code { font-size:.88em; }
+table { border-collapse:collapse; } td, th { border:1px solid var(--line); padding:4px 8px; }
+blockquote { border-left:3px solid var(--line); margin:0; padding-left:14px; color:var(--soft); }
+strong { color:var(--accent); }
+</style></head>
+<body><main>
+<!-- strategy: Boosted matter waves -->
+
+<p>Fire electrons at a nickel crystal and they land in the pattern of a wave with wavelength $h/p$; put neutrons through a silicon interferometer and their phase shifts by (energy difference × time)/$\hbar$; those two facts, plus a few general assumptions and Galilean invariance, pin down the Schrödinger equation. Every step below is labelled <em>assumption</em>, <em>theorem</em> (follows from what precedes), or <em>heuristic</em>.</p>
+<h2>1. Experiments</h2>
+<p><strong>Davisson–Germer (1927).</strong> Electrons accelerated through a voltage $V_0$ (54 V in the famous run) hit a nickel crystal. <em>Observed:</em> the collected current versus angle has a sharp peak (near 50°) close to where a wave of wavelength $\lambda = h/p$ would be Bragg-reflected by the crystal planes, $p$ being the momentum from $V_0$; the match becomes quantitative once refraction by the crystal's inner potential is included. Raising $V_0$ shrinks $\lambda \propto 1/\sqrt{V_0}$ and so moves the peak (Bragg: $\sin\theta \propto \lambda$). Idealization: monoenergetic beam, perfect crystal.</p>
+<p><strong>Single-electron build-up (Tonomura et al. 1989; earlier Merli, Missiroli &amp; Pozzi 1974).</strong> Electrons sent one at a time through an electron biprism. <em>Observed:</em> each electron arrives as one click at one place; the clicks accumulate into interference fringes.</p>
+<p><strong>Colella–Overhauser–Werner (1975).</strong> A neutron beam is split in a single silicon crystal, the two paths run at different heights (vertical separation $\Delta z$, up to a few cm), then recombine. <em>Observed:</em> tilting the crystal shifts the interference fringes. The ideal formula is phase difference $= m g\Delta z\, T/\hbar$, with $m$ the neutron mass and $T$ the transit time; the 1975 data agreed with it within the experiment's uncertainty, roughly 10%; later, more precise runs reached about 1% and found a small residual discrepancy that is still discussed. Since $T = L/v = Lm/p$ at fixed wavelength, the ideal phase is $\propto m^2$: mass enters once through the potential $mgz$ and once through the transit time. A classical wave like sound or light, with $\lambda = h/p$ put in by hand, has no particle mass $m$ in its phase, so it cannot give a shift $\propto m^2$.</p>
+<p><strong>Rotating-frame neutron interferometry (Werner, Staudenmann, Colella 1979).</strong> The same interferometer, carried round by the Earth: <em>observed</em> a phase shift set by the Earth's rotation rate. This is a non-inertial (rotating) frame, so it is <em>related to</em> but not the same as boost covariance. Uniformly boosted interferometers are not, to my knowledge, tested directly, so below Galilean invariance is an <em>assumption</em> backed by these results and by the classical limit.</p>
+<p><img alt="Left: the COW interferometer. The beam splits at A, one path runs Δz higher than the other, and the paths recombine at D. Right: model counts vs crystal tilt φ, phase Δφ = m g Δz₀ sin φ T/ħ with illustrative values Δz₀ = 2 cm and T = 10 µs (not the 1975 apparatus, which enclosed a larger area and gave more fringes): ±15.6 rad at ±30°, about 5 fringes. In this ideal model a massless classical wave has no m in its phase and gives the flat dotted line; the real apparatus also shows tilt effects from crystal bending." src="figures/a-cow-fringes.png" /></p>
+<p><em>Sources:</em> Davisson &amp; Germer, Phys. Rev. 30, 705 (1927); Tonomura et al., Am. J. Phys. 57, 117 (1989); Colella, Overhauser &amp; Werner, Phys. Rev. Lett. 34, 1472 (1975); Staudenmann et al., Phys. Rev. A 21, 1419 (1980); Werner, Staudenmann &amp; Colella, Phys. Rev. Lett. 42, 1103 (1979); Rauch &amp; Werner, <em>Neutron Interferometry</em>, chapter on gravitational and inertial effects; Sakurai &amp; Napolitano, §2.7.</p>
+<h2>2. Classical candidates these rule out</h2>
+<ul>
+<li><strong>Classical particles</strong> (straight paths, possibly bouncing off atoms): a broad angular spread, no peak that moves with $1/\sqrt{V_0}$. Ruled out by Davisson–Germer.</li>
+<li><strong>Classical scalar wave</strong> (like sound) with $\lambda = h/p$ put in by hand: reproduces the diffraction peak, but (i) its energy spreads over the whole detector instead of arriving as single clicks, and (ii) its phase contains no parameter $m$, so the COW shift has no place to come from. Ruled out by the single clicks (Tonomura) and by COW.</li>
+</ul>
+<p>What survives: a complex amplitude $\psi(x,t)$ whose squared modulus gives click probabilities (you already have this), whose phase carries energy × time / $\hbar$. The question is what equation $\psi$ obeys.</p>
+<p><img alt="Toy Davisson–Germer model. A wave scattered by Ni surface rows (d = 2.15 Å) peaks where d sin φ = h/p: 64° at 40 V, 51° at 54 V, 43° at 70 V. Classical particles give a broad spread that does not depend on the voltage (dotted). Background level and peak widths are illustrative; only the peak positions are computed." src="figures/a-classical-vs-quantum.png" /></p>
+<p><em>Sources:</em> Feynman Lectures III, ch. 1–2.</p>
+<h2>3. Model: state vector plus time-evolution operator</h2>
+<p>Write the state at time $t$ as a vector $|\psi(t)\rangle$ (for one particle on a line, the function $\psi(x,t)$). Four assumptions:</p>
+<p><strong>(L) Linearity</strong> — <em>assumption, from experiment.</em> Superposed beams (COW, double slits) evolve as the sum of the separately evolved beams, so there is a linear operator with $|\psi(t_2)\rangle = U(t_2,t_1)|\psi(t_1)\rangle$.</p>
+<p><strong>(U) Unitarity</strong> — <em>assumption.</em> Total probability $\sum|c|^2 = 1$ is conserved for every state, which (as you saw before) forces $U^\dagger U = 1$. The other half, $UU^\dagger = 1$, needs $U$ invertible, which (C) below supplies: $U(-t)$ undoes $U(t)$.</p>
+<p><strong>(C) Composition</strong> — <em>assumption.</em> $U(t_2,t_1)U(t_1,t_0) = U(t_2,t_0)$. Add <em>time-translation invariance</em> (assumption: the apparatus does not change in time), so $U$ depends only on elapsed time, $U(s)U(t) = U(s+t)$ for all real $s,t$, $U(0) = 1$.</p>
+<p><strong>(K) Continuity</strong> — <em>assumption.</em> $U(t)|\psi\rangle$ changes continuously with $t$ for every state.</p>
+<p><em>Theorem (Stone, 1932):</em> a strongly continuous one-parameter family of unitaries obeying $U(s)U(t)=U(s+t)$ is $U(t) = e^{-iHt/\hbar}$ for a unique self-adjoint $H$ (in infinite dimensions $H$ is defined only on a dense set of states; "self-adjoint" is the careful version of "Hermitian" used below). In finite dimensions, continuity ⇒ differentiability is itself a theorem. In infinite dimensions, with $H$ unbounded (as the free $H$ of §4 is), $U(t)$ is <em>not</em> differentiable as an operator; only $U(t)|\psi\rangle$ is, and only for $|\psi\rangle$ in the dense domain of $H$. I will not prove this, which is Stone's technical content; I <em>assume</em> (<strong>heuristic</strong>) that $U(t)|\psi\rangle$ is differentiable in $t$ for every $|\psi\rangle$ in a dense set, and read every operator equation below as acting on such states.</p>
+<p><strong>Step 1 (differentiate the composition law).</strong> For small $\epsilon$,
+$$\frac{U(t+\epsilon)-U(t)}{\epsilon} = \frac{U(\epsilon)U(t)-U(0)U(t)}{\epsilon} = \frac{U(\epsilon)-U(0)}{\epsilon}\,U(t).$$
+Let $\epsilon \to 0$: $dU/dt = A\,U(t)$ with $A \equiv U&#x27;(0)$ a fixed operator. <em>Theorem given differentiability.</em> This is why the equation is first order in time: the rate of change of $U$ is a fixed operator times $U$ itself, so the present state alone fixes the future.</p>
+<p><strong>Step 2 ($A$ anti-Hermitian ⇔ $U$ unitary).</strong> Differentiate $U^\dagger U = 1$ at $t=0$ (product rule, $U(0)=1$): $A^\dagger + A = 0$. Define $H \equiv i\hbar A$; then $H^\dagger = -i\hbar A^\dagger = i\hbar A = H$. Converse: if $H^\dagger = H$ then $\frac{d}{dt}(U^\dagger U) = U^\dagger(A^\dagger + A)U = 0$ and $U^\dagger U = 1$ at $t=0$, so for all $t$. <em>Theorem</em>, both directions. The constant $\hbar$ is a unit conversion (<em>assumption</em>: any positive constant works here; calling it $\hbar$ is the choice to measure $H$ in joules, and that $H$'s eigenvalues are the measured energies is fixed by experiment, e.g. $E=\hbar\omega$ in §4).</p>
+<p><strong>Step 3 (solve).</strong> $dU/dt = -(i/\hbar)HU$, $U(0)=1$, $H$ constant. $U(t) = e^{-iHt/\hbar}$ (power series) satisfies it: differentiate term by term. Uniqueness: if $V(t)$ also satisfies it, $\frac{d}{dt}\big(e^{iHt/\hbar}V\big) = e^{iHt/\hbar}\big(\tfrac{i}{\hbar}H - \tfrac{i}{\hbar}H\big)V = 0$, so $e^{iHt/\hbar}V(t) = 1$ for all $t$. <em>Theorem.</em> Apply to a state and differentiate:
+$$i\hbar\,\frac{d}{dt}|\psi(t)\rangle = H\,|\psi(t)\rangle.$$
+The Schrödinger equation <em>in form</em>: first order, linear, Hermitian generator. Check: $H|E\rangle = E|E\rangle$ gives $|\psi(t)\rangle = e^{-iEt/\hbar}|E\rangle$, your stationary states.</p>
+<p><strong>Not yet fixed:</strong> $H$ itself. Any Hermitian operator passes steps 1–3.</p>
+<p><img alt="Left: on an energy eigenstate, U(t) = e^{-iEt/ħ} is a rotation in the complex plane, so applying U(t) and then U(s) adds the angles, which is U(s)U(t) = U(s+t). Right: the real and imaginary parts oscillate while |U|² stays 1 (unitarity)." src="figures/a-composition-group.png" /></p>
+<p><em>Sources:</em> Ballentine §3.7 (equation of motion from time displacement); Weinberg, <em>Lectures on QM</em>, ch. 3 (uses $U = e^{-iHt}$ without proving Stone's theorem); Sakurai &amp; Napolitano §2.1.</p>
+<h2>4. Galilean invariance fixes $H$</h2>
+<p><strong>Assumption (G):</strong> the free-particle law is the same in a frame moving at any constant velocity $v$ (all real $v$). If $\psi(x,t)$ describes the particle in the lab, the moving observer uses $x&#x27; = x - vt$, $t&#x27; = t$ and a wavefunction $\psi&#x27;$ obtained by (G0) a <em>linear</em> map from $\psi$ (<em>assumption</em>; alternatively Wigner's theorem plus continuity in $v$, since boosts connect to $v=0$, which excludes the antiunitary option), with (G1) the same $|\psi&#x27;|^2$ at the same physical point (a click is a click) and (G2) satisfying the <em>same</em> Schrödinger equation, with the same $H$.</p>
+<p><em>Lemma (theorem, elementary):</em> a linear map $T$ that preserves $|\psi|^2$ pointwise is multiplication by a phase function. Sketch: $|T\psi| = |\psi|$ alone says $T\psi$ vanishes wherever $\psi$ does, so the value of $T\psi$ at a point can depend only on $\psi$ near that point. Locality and a common phase: take $\psi_1, \psi_2$ with overlapping support, each $T\psi_j = e^{i\alpha_j}\psi_j$ with possibly different phase functions; linearity gives $T(\psi_1+\psi_2) = e^{i\alpha_1}\psi_1 + e^{i\alpha_2}\psi_2$, and $|T(\psi_1+\psi_2)| = |\psi_1+\psi_2|$ at every point of the overlap forces $\alpha_1 = \alpha_2$ there (compare $|e^{i\alpha_1}\psi_1 + e^{i\alpha_2}\psi_2|^2 = |\psi_1|^2 + |\psi_2|^2 + 2\,\mathrm{Re}\,\psi_1^*\psi_2 e^{i(\alpha_2-\alpha_1)}$ with the unboosted value). So
+$$\psi&#x27;(x&#x27;,t&#x27;) = e^{i\theta(x&#x27;,t&#x27;;v)}\,\psi(x&#x27;+vt&#x27;,t&#x27;),$$
+with $\theta$ one fixed function, not depending on which $\psi$ is boosted. (Bargmann's 1954 theorem is a different, deeper result: it classifies all possible phase conventions for the whole Galilei group by one constant, the mass. It is not needed here.)</p>
+<p><strong>Input from experiment:</strong> de Broglie, $p = \hbar k$ (Davisson–Germer), and classical velocity addition $p&#x27; = p - mv$ for the momentum measured in the moving frame. This is <em>exactly where the classical limit enters</em> (<em>assumption</em>); the commutator route (Ballentine §3.4) derives it from the Galilei algebra instead. So a plane wave of wavenumber $k$ must become one of wavenumber $k&#x27; = k - mv/\hbar$.</p>
+<p><strong>Step 4 (boost a plane wave). This is where (G2) does its work.</strong> Take $\psi = e^{i(kx - \omega(k)t)}$ with $\omega(k)$ the unknown frequency, i.e. $H e^{ikx} = \hbar\omega(k)e^{ikx}$. Relabelling gives $\psi(x&#x27;+vt&#x27;,t&#x27;) = e^{i(kx&#x27; + kvt&#x27; - \omega(k)t&#x27;)}$. (G2) demands that $e^{i\theta}$ times this be a solution in the moving frame with the <em>same</em> function $\omega$: the plane wave $e^{i(k&#x27;x&#x27; - \omega(k&#x27;)t&#x27;)}$. So $\theta = [k&#x27;x&#x27; - \omega(k&#x27;)t&#x27;] - [kx&#x27; + kvt&#x27; - \omega(k)t&#x27;]$; the $x&#x27;$ terms give $(k&#x27;-k)x&#x27; = -(mv/\hbar)x&#x27;$, the $t&#x27;$ terms give $[\omega(k) - kv - \omega(k&#x27;)]t&#x27;$:
+$$\theta = -\frac{mv}{\hbar}x&#x27; + \big[\omega(k) - kv - \omega(k - mv/\hbar)\big]\,t&#x27;.$$</p>
+<p><strong>Step 5 ($\theta$ must not depend on $k$).</strong> The $x&#x27;$ coefficient already doesn't. Set $u = mv/\hbar$ ($u$ ranges over all reals since $v$ does) and require $\omega(k) - (\hbar u/m)k - \omega(k-u)$ independent of $k$. Assume $\omega$ differentiable and differentiate in $k$: $\omega&#x27;(k) - \omega&#x27;(k-u) = \hbar u/m$ for all $k,u$. Define $g(k) \equiv \omega&#x27;(k) - \hbar k/m$; then $g(k) - g(k-u) = \hbar u/m - \hbar u/m = 0$ for every $u$, so $g$ is a constant $c$. Integrate:
+$$\omega(k) = \frac{\hbar k^2}{2m} + c\,k + \omega_0 .$$
+<em>Theorem given the assumptions.</em> $\omega_0$ is the zero of energy, invisible in $|\psi|^2$. The $ck$ term is boost-covariant with the same $c$ in every frame, so no frame choice removes it. It is fixed by the classical limit, the same assumption as $p&#x27; = p - mv$: the group velocity $d\omega/dk = \hbar k/m + c$ must equal $p/m = \hbar k/m$, so $c = 0$. Equivalently, the rephasing $\psi \to e^{imcx/\hbar}\psi$ removes $ck$ while changing which operator is called momentum; $c=0$ is a <em>convention about $p$</em>. Substituting back, the bracket is $-mv^2/2\hbar$, so
+$$\theta = -\frac{1}{\hbar}\Big(mv\,x&#x27; + \tfrac12 m v^2 t&#x27;\Big),$$
+the mass-dependent boost phase. Mass entered only as the constant linking the $k$-shift to $v$.</p>
+<p><strong>Step 6 (read off $H$).</strong> $E = \hbar\omega = \hbar^2k^2/2m$. <em>Definition + experimental identification:</em> momentum is the operator whose eigenvalue on $e^{ikx}$ is the measured $p = \hbar k$; the operator $-i\hbar\,\partial_x$ does this (check by differentiating), and taking it to <em>be</em> $p$ on all superpositions is a definition, with (L) extending it. Then, on one line,
+$$H_{\text{free}} = \frac{p^2}{2m} = -\frac{\hbar^2}{2m}\,\partial_x^2,\qquad i\hbar\,\partial_t\psi = -\frac{\hbar^2}{2m}\,\partial_x^2\psi .$$
+In three dimensions the same steps with a vector $\mathbf k$ and boost $\mathbf v$ give $\hbar\omega = \hbar^2|\mathbf k|^2/2m$ and the Laplacian. Check: $\hbar\omega = \tfrac12 m v_{\text{g}}^2$ with $v_{\text{g}} = d\omega/dk = \hbar k/m = p/m$, the classical kinetic energy.</p>
+<p><strong>Adding a potential.</strong> <em>Assumption</em> (locality): external forces enter by adding to $H$ a term whose value at $x$ depends only on $\psi$ at $x$ — a real function $V(x)$ multiplying $\psi$. Real $V$ keeps $H$ Hermitian (step 2). This is not derived from (G) — a potential breaks boost invariance — and nothing above excludes other Hermitian additions; locality is the extra assumption, and COW confirms the form for $V = mgz$.</p>
+<p><img alt="The same plane wave at t = 0 seen in the lab (k = 5) and from a frame moving at v = 2 (k' = 3), in units ħ = m = 1. |ψ|² = 1 in both frames. The wavelength changes from 2π/5 to 2π/3 only through the phase factor e^{-imvx/ħ}." src="figures/a-boost-phase.png" /></p>
+<p><em>Sources:</em> Ballentine §3.3–3.4 (Galilei generators, mass as central charge) and §4.3 (Galilei transformation of the wavefunction); Weinberg ch. 3; Sakurai &amp; Napolitano §2.4 ($H = p^2/2m + V$ is postulated there); Bargmann, Ann. Math. 59, 1 (1954).</p>
+<h2>5. How it fits together, and the honest ledger</h2>
+<p>The same equation is reached by other routes — Feynman's sum over paths with $L = \tfrac12 mv^2$, Heisenberg's matrix form, or the Galilei-algebra route ($[K,P]=i\hbar m$ with $K = mX - tP$; the sign depends on convention) — <em>equivalent formulations</em>, not rivals: identical predictions. Interpretations (Copenhagen-style, many-worlds, pilot-wave, objective collapse) differ about what $\psi$ <em>is</em> and what happens at a click; nothing above depends on that, except that objective-collapse models modify (L) and (U) slightly (their evolution is nonlinear and stochastic), a live experimental question.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$U$ linear</td>
+<td>assumption (superposition experiments)</td>
+</tr>
+<tr>
+<td>$U$ unitary ⇔ $H$ Hermitian</td>
+<td>assumption ⇔ theorem (step 2, both directions)</td>
+</tr>
+<tr>
+<td>composition + time-translation invariance</td>
+<td>assumption</td>
+</tr>
+<tr>
+<td>continuity ⇒ $U = e^{-iHt/\hbar}$ unique</td>
+<td>theorem (Stone); differentiability of $U(t)\lvert\psi\rangle$ on a dense set assumed; uniqueness shown</td>
+</tr>
+<tr>
+<td>$\hbar$</td>
+<td>unit convention, value from experiment</td>
+</tr>
+<tr>
+<td>boost map linear (G0)</td>
+<td>assumption (or Wigner + continuity)</td>
+</tr>
+<tr>
+<td>boost = phase × relabelling</td>
+<td>theorem (lemma) given (G0) + (G1)</td>
+</tr>
+<tr>
+<td>$p&#x27; = p - mv$, same $\omega$ in moving frame</td>
+<td>assumption (classical limit, G2)</td>
+</tr>
+<tr>
+<td>$\omega = \hbar k^2/2m$</td>
+<td>theorem ($\omega$ differentiable); $c=0$ by the classical limit / convention for $p$</td>
+</tr>
+<tr>
+<td>$p = -i\hbar\partial_x$</td>
+<td>definition + de Broglie</td>
+</tr>
+<tr>
+<td>$V(x)$ added</td>
+<td>assumption (locality)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="How the argument is built. Assumptions (dashed boxes) feed the theorems (grey boxes): Stone gives iħ∂tψ = Hψ, and the boost lemma plus Steps 4–5 give ω = ħk²/2m. Together these give the Schrödinger equation. The differentiability of U(t)|ψ⟩ on a dense set is assumed, not proved." src="figures/a-ledger.png" /></p>
+<p>Pros of this route: every ingredient is tied to a measured fact and the mass enters by elementary calculus. Cons: boost invariance is assumed, not directly tested by boosted interferometers; the argument is one-particle and non-relativistic — replacing Galilean by Lorentz invariance gives Klein–Gordon or Dirac instead.</p>
+<p><strong>Check yourself:</strong> In step 5, what would go wrong if you demanded $\theta$ be independent of $x&#x27;$ as well as $k$ — which experiment contradicts that?</p>
+</main></body></html>
